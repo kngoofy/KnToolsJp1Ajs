@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,11 +12,15 @@ using KnToolsJp1Ajs;
 
 namespace KnToolsJp1AjsForms
 {
+    /// <summary>
+    /// JP1AJS ブック作成ツール forms アプリ
+    /// </summary>
     public partial class Form1 : Form
     {
         // Default System一覧 ブックを作成するSystemをチェック
         Dictionary<string, bool> _dict = new Dictionary<string, bool>();
 
+        //コンストラクタ
         public Form1()
         {
             InitializeComponent();
@@ -24,35 +29,32 @@ namespace KnToolsJp1AjsForms
             checkBoxDerico.Checked = _dict["Derico"] = true;
         }
 
+        //ピクチャをクリックするとOpenFileDialogを出して、AJS定義ファイルを指定後ブック作成
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var fileContent = string.Empty;
+            //var fileContent = string.Empty;
             var filePath = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Title = "JP1AJS定義のファイルを開く";
+                openFileDialog.InitialDirectory = @"c:\";
                 openFileDialog.Filter = "jp1def (*.def)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //
                     filePath = openFileDialog.FileName;
+                    textBox1.Text = filePath;
+                    var bookPath = Path.GetDirectoryName(filePath) + @"\"
+                        + Path.GetFileNameWithoutExtension(filePath) + ".xlsx";
+                    CreateBookFromForms.CreateBookFromFilePath(filePath, bookPath);
+                    //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
                 }
             }
-            //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-
-            //
-            var makebook = new AdapterMain();
-            var file = filePath.Replace(@"\\", @"\");
-            textBox1.Text = file;
-            makebook.MakeJp1DefBookAdapter(file);
-
         }
 
-        
         private void button1_Click(object sender, EventArgs e)
         {
             _dict["AzNavel"] = checkBoxAzNavel.Checked;
@@ -64,18 +66,23 @@ namespace KnToolsJp1AjsForms
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             //
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            for (int i = 0; i < files.Length; i++)
+            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            Array.Sort(filePaths);
+            textBox1.Text = "";
+            for (int i = 0; i < filePaths.Length; i++)
             {
-                string fileName = files[i];
-                textBox1.Text = fileName;
+                string filePath = filePaths[i];
+                textBox1.Text += Path.GetFileName(filePath)+";";
+                var bookPath = Path.GetDirectoryName(filePath) + @"\"
+                         + Path.GetFileNameWithoutExtension(filePath) + ".xlsx";
+                CreateBookFromForms.CreateBookFromFilePath(filePath, bookPath);
             }
 
-            var makebook = new AdapterMain();
-            var file = textBox1.Text.Replace(@"\\", @"\");
-            textBox1.Text = file;
-            makebook.MakeJp1DefBookAdapter(file);
-
+            //var makebook = new AdapterMain();
+            //var file = textBox1.Text.Replace(@"\\", @"\");
+            //textBox1.Text = file;
+            //makebook.MakeJp1DefBookAdapter(file);
+            //CreateBookFromForms.CreateBookFromFilePath(file, null);
         }
 
         //JP1AJSのAJSPRINT出力形式ファイルをドロップしたときのチェック
@@ -89,16 +96,18 @@ namespace KnToolsJp1AjsForms
             {
                 e.Effect = DragDropEffects.None;
             }
-
         }
 
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -113,32 +122,5 @@ namespace KnToolsJp1AjsForms
 
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "jp1def (*.def)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    //
-                    filePath = openFileDialog.FileName;
-                }
-            }
-            //MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-
-            //
-            var makebook = new AdapterMain();
-            var file = filePath.Replace(@"\\", @"\");
-            textBox1.Text = file;
-            makebook.MakeJp1DefBookAdapter(file);
-
-        }
     }
 }

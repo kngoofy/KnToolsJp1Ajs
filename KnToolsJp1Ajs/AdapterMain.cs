@@ -15,8 +15,8 @@ namespace KnToolsJp1Ajs
         /// <summary>
         /// WinFormsから呼び出し用のアダプタクラス AJSブック作成
         /// </summary>
-        /// <param name="file">ajsユニット定義ファイル名</param>
-        public void MakeJp1DefBookAdapter(string file)
+        /// <param name="filePath">ajsユニット定義ファイル名</param>
+        public static void MakeJp1DefBookAdapter(string filePath,string fileName)
         {
 
             //テンプレートブック名
@@ -26,15 +26,15 @@ namespace KnToolsJp1Ajs
             CreateNewTemplateBook.NewExcelBook(templateBook);
 
             //ajsユニット定義ファイルを読み込んでstring型へ
-            string strDef = ReadFile.ReadFileToString(file);
+            string strDef = ReadFile.ReadFileToString(filePath);
             //ajsユニット定義ファイルをパース string型から
             var units = ParseJp1Def.ParseJp1DefFromString(strDef, out string ajsname);
 
             //ajsユニット定義ファイルを読み込んでList型へ
-            List<string> lines = ReadFile.ReadFileToList(file);
+            List<string> lines = ReadFile.ReadFileToList(filePath);
 
             //作成するブック名
-            string CreatedBook = $@"Jp1Ajs-{ajsname}.xlsx";
+            string CreatedBook = fileName ?? $@"Jp1Ajs-{ajsname}.xlsx";
             //AJSブック作成実行
             UpdateBook.UpdateExcelBook(templateBook, units, lines, CreatedBook);
 
