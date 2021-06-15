@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Data\jp1def-test04.txt" />
     <Content Include="Data\jp1def-test03.txt" />
     <Content Include="Data\jp1def-test02.txt" />
     <Content Include="Data\jp1def-test01.txt" />
