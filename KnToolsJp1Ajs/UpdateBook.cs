@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace KnToolsJp1Ajs
 {
+    /// <summary>
+    /// テンプレートブックにデータを配置して、AJSルートのブックを作成する。
+    /// </summary>
     class UpdateBook
     {
         public static bool UpdateExcelBook(string templateFile, List<Unit> lists, List<string> lines, string outputFile)

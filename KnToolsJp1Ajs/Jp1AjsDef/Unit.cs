@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
+    /// <summary>
+    ///  JP1AJSのユニット
+    /// </summary>
     public class Unit : IUnit
     {
         //Unit パート

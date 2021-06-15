@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    /// JP1AJSのジョブネットユニット
+    /// JP1AJSのジョブネットユニット インターフェース
     /// </summary>
     public interface IJobnetUnit
     {

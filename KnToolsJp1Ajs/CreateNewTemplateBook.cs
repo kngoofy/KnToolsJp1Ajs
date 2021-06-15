@@ -11,6 +11,9 @@ using KnToolsJp1Ajs.Jp1AjsDef;
 
 namespace KnToolsJp1Ajs
 {
+    /// <summary>
+    /// JP1AJS定義ブックのテンプレート作成
+    /// </summary>
     class CreateNewTemplateBook
     {
         //コンストラクタ

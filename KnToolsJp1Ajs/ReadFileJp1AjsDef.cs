@@ -7,6 +7,9 @@ using System.IO;
 
 namespace KnToolsJp1Ajs
 {
+    /// <summary>
+    /// JP1AJS定義ファイルを読み込んでストリング型orList型に組み立てる
+    /// </summary>
     public class ReadFile
     {
         /*public ReadFileJp1AjsDef()

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace KnToolsJp1Ajs
 {
+    /// <summary>
+    /// WinForms用アダプタクラス
+    /// </summary>
     public class AdapterMain
     {
 

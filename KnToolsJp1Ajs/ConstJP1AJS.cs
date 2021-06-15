@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace KnToolsJp1Ajs
 {
+    /// <summary>
+    /// コンスタント Excelシート
+    /// </summary>
     class ConstJP1AJS
     {
         //Excelのシート名

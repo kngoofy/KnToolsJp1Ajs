@@ -9,14 +9,14 @@ namespace KnToolsJp1Ajs
     class CreateBookStyles
     {
         /// <summary>
-        /// 使用スタイルを作成する。 static methodです。
+        /// 使用スタイルを作成する。 static method
         /// </summary>
         /// <param name="wb"></param>
         /// <returns></returns>
         public static Dictionary<String, ICellStyle> createBookStyles(IWorkbook wb)
         {
             //作成したセルのスタイルをディクショナリで返すコレクションを作成
-            Dictionary<String, ICellStyle> styles = new Dictionary<String, ICellStyle>();
+            var styles = new Dictionary<String, ICellStyle>();
 
             //
             IFont font = wb.CreateFont();
@@ -91,16 +91,31 @@ namespace KnToolsJp1Ajs
 
         }
 
+        /// <summary>
+        /// フォント作成
+        /// </summary>
+        /// <param name="wb"></param>
+        /// <returns></returns>
         private static IFont CreateFont(IWorkbook wb)
         {
             return wb.CreateFont();
         }
 
+        /// <summary>
+        /// セルスタイル作成
+        /// </summary>
+        /// <param name="wb"></param>
+        /// <returns></returns>
         private static ICellStyle CreateStyle(IWorkbook wb)
         {
             return wb.CreateCellStyle();
         }
 
+        /// <summary>
+        /// セルスタイル作成 枠あり
+        /// </summary>
+        /// <param name="wb"></param>
+        /// <returns></returns>
         private static ICellStyle CreateBorderedStyle(IWorkbook wb)
         {
             ICellStyle style = wb.CreateCellStyle();

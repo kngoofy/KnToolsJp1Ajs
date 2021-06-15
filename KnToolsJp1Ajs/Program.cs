@@ -10,6 +10,10 @@ namespace KnToolsJp1Ajs
 {
     class Program
     {
+        /// <summary>
+        /// コンソールアプリ用のエントリポイント メイン
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
 
