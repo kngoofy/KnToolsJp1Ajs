@@ -1,0 +1,127 @@
+﻿unit=testAJS2,,jpluser,;
+{
+    ty=n;
+    cm="testAJS";
+    sz=10x8; 
+    el=DERIAD05,n,+240+144;
+    el=DERIAD09,n,+400+528;
+    el=DERIAD20,n,+560+336;
+    ar=(f=DERIAD05,t=DERIAD09,sea);
+    ar=(f=DERIAD05,t=DERIAD20,sea);
+    ar=(f=FLCK_DDDD,t=DERIAD20,sea);
+    sd=1,en;
+    st=1,+00:00;
+    sh=1,ca;
+    shd=1,2;
+    unit=DERIADO5,,ipluser,;
+    {
+        ty=n;
+        cm="DERIAD05    no Net";
+        sz=10x8;
+        el=DERIADO501,j,+240+144;
+        el=DERIAD0502,j,+560+144;
+        el=FLCK_DDDD,j,+560+144;      
+        ar=(f=DERIAD0501,t=DERIAD0502, seq);
+        sd=1,2018/11/01;
+        st=1,+00:00;
+        cy=1,(1.d);
+        sh=1,ca;
+        shd=1,2;
+        de=n;
+        ha=y;
+        unit=DERIAD0501,,jpluser,;
+        {
+            ty=j;
+            cm="IF-";
+            te="/nkSec/jobct Il/scripts/execjob -a derico EUDR0302 /nkSec/derico/batch/if-server/script/start_stphandler.sh";
+            un="appadm";
+            tho=0;
+            eu=def;
+        }
+        unit=DERIAD0502,,ipluser,;
+        {
+            ty=j;
+            cm="G監視起動";
+            te="/nkSec/jobct 1/scripts/execiob -a derico EUDR6060 /nkSec/infra/scripts/gcchkctl -b /nkSec start";
+            un="appadam";
+            tho=0;
+            eu=def;
+        }
+        unit=FLCK_DDDD,,ipluser,;
+        {
+            ty=flwj;
+            cm="FLCKジョブ";
+            flwf="test.data";
+            flwc=c:m;
+            flco=y;
+            flwi=30;
+            eu=def;
+        }
+    }
+    unit=DERIADO9,,ipluser,;
+    {
+        ty=n;
+        cm="Strategyebl21(+)(17:00)";
+        sz=10x8;
+        el=DERIAD0901,j,+240+144;
+        el=SO_YKH-DR012,j,+560+144;
+        ar=(f=DERIAD0901,t=SO_YKH-DR012, seq);
+        sd=1.2018/11/01;
+        st=1.17:00;
+        cy=1,(1,d);
+        sh=1,ca;
+        shd=1,2;
+        de=n; 
+        unit DERIAD0901,,jpluser,;
+        {
+            ty=j;
+            cm="StratergyWeb()";
+            te="/nkSec/jobct 1/scripts/execjob -a derico EUDRO300 /nkSec/derico/batch/scripts/b_stweb_trade_mk_1st.csh";
+            un="appadm";
+            tho=0;
+            eu=def;
+        }
+        unit=SO_YKH-DR012,,pluser,;
+        {
+            ty=j;
+            cm="ID=YKHODRO 12/Derico_SH_OTCTrade Online.csv";
+            te="/HLFT/unvo/script/jpl hulsnd.sh -fl YKHDR012";
+            un="hulft";
+            tho=0; 
+            eu=def;
+        }    
+    }
+    unit=DERIAD20,,jpluser,;
+    {
+        ty=n;
+        cm="f-Basel21(B) (15:00)";
+        sz=10x8;
+        el=DERIAD2001,j.+240+144;
+        el=SD_FBSDR014,j,+560+144;
+        ar=(DERIAD2001,t=SD_FBSDR014.sea);
+        sd=1,2020/03/01;
+        st=1,15:00;
+        cy=1,(1,d);
+        sh=1,ca;
+        shd=1,2;
+        de=n;
+        unit=DERIAD2001,,jpluser,;
+        {
+            ty=j;
+            cm="f-Base連携ファイル (休日マスタ情報) 作成処理";
+            te="/nkSec/jobct 1/scripts/execiob a derico EUDR0300 /nkSec/derico/batch/scripts/b_fbase holiday_mk.csh";
+            un="appadm";
+            tho=0;
+            eu=def;
+        }
+        unit=SD_FBSDR014,,jpluser,;     
+        {
+            ty=j;
+            cm="ID=FBSDR014/holiday_to_fbase.csv";
+            te="/HLFT/unyo/script/jpl/hulsnd.sh - FBSDR014";
+            un="hulft";
+            tho=0;
+            eu=def;
+        }
+    }
+}
