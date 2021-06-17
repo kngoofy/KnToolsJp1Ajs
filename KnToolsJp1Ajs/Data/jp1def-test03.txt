@@ -67,7 +67,7 @@
         el=SO_YKH-DR012,j,+560+144;
         ar=(f=DERIAD0901,t=SO_YKH-DR012, seq);
         sd=1.2018/11/01;
-        st=1.17:00;
+        st=1,17:00;
         cy=1,(1,d);
         sh=1,ca;
         shd=1,2;

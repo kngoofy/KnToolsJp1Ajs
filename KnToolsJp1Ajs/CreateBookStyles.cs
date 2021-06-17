@@ -24,7 +24,8 @@ namespace KnToolsJp1Ajs
 
             // (a)スタイルエイリアス[topleft]ディクショナリに追加
             font = CreateFont(wb);
-            font.FontHeightInPoints = ((short)14);
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = ((short)11);
             font.IsBold = true;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
@@ -37,7 +38,8 @@ namespace KnToolsJp1Ajs
 
             // (b)スタイルエイリアス[indexBoxNo]ディクショナリに追加
             font = CreateFont(wb);
-            font.FontHeightInPoints = ((short)14);
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = ((short)11);
             font.IsBold = true;
             font.Color = (IndexedColors.DarkBlue.Index);
             style = CreateBorderedStyle(wb);
@@ -50,8 +52,9 @@ namespace KnToolsJp1Ajs
 
             // (c)スタイルエイリアス[indexBoxTitle]ディクショナリに追加
             font = CreateFont(wb);
-            font.FontHeightInPoints = ((short)14);
-            font.IsBold = true;
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = ((short)10);
+            font.IsBold = false;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
@@ -63,8 +66,9 @@ namespace KnToolsJp1Ajs
 
             // (d)スタイルエイリアス[BlankCell]ディクショナリに追加
             font = CreateFont(wb);
-            font.FontHeightInPoints = ((short)14);
-            font.IsBold = true;
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = ((short)10);
+            font.IsBold = false;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
@@ -76,8 +80,9 @@ namespace KnToolsJp1Ajs
 
             // (e)スタイルエイリアス[leftBox]ディクショナリに追加
             font = CreateFont(wb);
-            font.FontHeightInPoints = ((short)14);
-            font.IsBold = true;
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = ((short)10);
+            font.IsBold = false;
             font.Color = (IndexedColors.Black.Index);
             style = CreateBorderedStyle(wb);
             style.SetFont(font);

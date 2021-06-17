@@ -57,14 +57,15 @@ namespace KnToolsJp1Ajs
                 list.Insert(0, (y + 1).ToString());
                 for (int x = 0; x < list.Count; x++)
                 {
-                    //WriteCell(sheet, styles["indexBoxTitle"], (p.y, p.x + x), list[x]);
                     WriteCell(sheet, styles["leftBox"], (p.y + y, p.x + x), list[x]);
-                    sheet.AutoSizeColumn(p.x + x, true);
+                    //sheet.AutoSizeColumn(p.x + x, true);
                 }
             }
 
-
-            //sheet.AutoSizeColumn(0, true);
+            for (int i = 0; i < lists[0].getListValues().Count +1; i++)
+            {
+                sheet.AutoSizeColumn(i, true);
+            }
 
             return true;
 

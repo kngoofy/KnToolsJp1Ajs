@@ -27,7 +27,7 @@ namespace KnToolsJp1Ajs
             ajsname = jp1Unit.Name;
 
             IEnumerable<Unclazz.Jp1ajs2.Unitdef.IUnit> jobNets = jp1Unit.SubUnits;
-            
+
             List<Jp1AjsDef.Unit> list = new List<Jp1AjsDef.Unit>();
 
             IEnumerable<Unclazz.Jp1ajs2.Unitdef.IUnit> jobs;
@@ -38,7 +38,7 @@ namespace KnToolsJp1Ajs
             s.Jp1UserName = jp1Unit.Attributes.Jp1UserName;
             s.Cm = jp1Unit.Comment;
             s.Ty = jp1Unit.Type.Name;
-            s.SuperUnitName = "/"; 
+            s.SuperUnitName = "/";
             foreach (var para in jp1Unit.Parameters)
             {
                 if (para.Name == "ar")
@@ -58,6 +58,10 @@ namespace KnToolsJp1Ajs
                 {
                     if (para.Name == "de") s.De = para.Values[0].StringValue;
                     if (para.Name == "ha") s.Ha = para.Values[0].StringValue;
+                    if (para.Name == "st")
+                        s.St = para.Values[1].StringValue;
+                    if (para.Name == "cy")
+                        s.Cy = para.Values[1].StringValue;
                     if (para.Name == "ar") s.ArList.Add((para.Values[0].TupleValue.Values[0], para.Values[0].TupleValue.Values[1]));
                 }
                 list.Add(s.Clone());
