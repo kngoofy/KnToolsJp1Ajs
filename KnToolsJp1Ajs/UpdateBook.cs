@@ -21,7 +21,7 @@ namespace KnToolsJp1Ajs
                 var book = WorkbookFactory.Create(templateFile);
 
                 //Bookのスタイル作成
-                Dictionary<String, ICellStyle> styles = CreateBookStyles.createBookStyles(book);
+                Dictionary<String, ICellStyle> styles = BookStyles.CreateBookStyles(book);
 
                 UpdateSheetUnit(book, lists, styles);
                 UpdateSheetFile(book, lists, styles);

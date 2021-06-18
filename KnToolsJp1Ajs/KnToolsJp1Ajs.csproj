@@ -64,9 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdapterMain.cs" />
+    <Compile Include="Adapter.cs" />
     <Compile Include="ConstJP1AJS.cs" />
-    <Compile Include="CreateBookStyles.cs" />
+    <Compile Include="BookStyles.cs" />
     <Compile Include="CreateNewTemplateBook.cs" />
     <Compile Include="Jp1AjsDef\IAttribute.cs" />
     <Compile Include="Jp1AjsDef\IFlwjUnit.cs" />

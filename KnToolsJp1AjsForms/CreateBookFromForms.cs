@@ -12,7 +12,7 @@ namespace KnToolsJp1AjsForms
         //
         public static bool CreateBookFromFilePath(string filePath,string fileName)
         {
-            AdapterMain.MakeJp1DefBookAdapter(filePath,fileName);
+            Adapter.CreateFromFile(filePath,fileName);
             return true;
         }
         public static bool CreateNewBook()

@@ -6,14 +6,14 @@ using NPOI.SS.UserModel;
 
 namespace KnToolsJp1Ajs
 {
-    class CreateBookStyles
+    class BookStyles
     {
         /// <summary>
         /// 使用スタイルを作成する。 static method
         /// </summary>
         /// <param name="wb"></param>
         /// <returns></returns>
-        public static Dictionary<String, ICellStyle> createBookStyles(IWorkbook wb)
+        public static Dictionary<String, ICellStyle> CreateBookStyles(IWorkbook wb)
         {
             //作成したセルのスタイルをディクショナリで返すコレクションを作成
             var styles = new Dictionary<String, ICellStyle>();
@@ -25,7 +25,7 @@ namespace KnToolsJp1Ajs
             // (a)スタイルエイリアス[topleft]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)11);
+            font.FontHeightInPoints = ((short)10);
             font.IsBold = true;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
@@ -39,7 +39,7 @@ namespace KnToolsJp1Ajs
             // (b)スタイルエイリアス[indexBoxNo]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)11);
+            font.FontHeightInPoints = ((short)10);
             font.IsBold = true;
             font.Color = (IndexedColors.DarkBlue.Index);
             style = CreateBorderedStyle(wb);
@@ -53,7 +53,7 @@ namespace KnToolsJp1Ajs
             // (c)スタイルエイリアス[indexBoxTitle]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)10);
+            font.FontHeightInPoints = ((short)9);
             font.IsBold = false;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
@@ -67,7 +67,7 @@ namespace KnToolsJp1Ajs
             // (d)スタイルエイリアス[BlankCell]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)10);
+            font.FontHeightInPoints = ((short)9);
             font.IsBold = false;
             font.Color = (IndexedColors.White.Index);
             style = CreateBorderedStyle(wb);
@@ -81,7 +81,7 @@ namespace KnToolsJp1Ajs
             // (e)スタイルエイリアス[leftBox]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)10);
+            font.FontHeightInPoints = ((short)9);
             font.IsBold = false;
             font.Color = (IndexedColors.Black.Index);
             style = CreateBorderedStyle(wb);

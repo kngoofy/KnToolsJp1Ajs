@@ -27,7 +27,7 @@ namespace KnToolsJp1Ajs
             IWorkbook book = new XSSFWorkbook();
 
             //Bookのスタイル作成
-            var styles = CreateBookStyles.createBookStyles(book);
+            var styles = BookStyles.CreateBookStyles(book);
 
             //定型シートを作成挿入
             var sheetIndex = book.CreateSheet(ConstJP1AJS.SHEETNAME_INDEX);
