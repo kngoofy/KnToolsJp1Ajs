@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs
 {
     /// <summary>
-    /// テンプレートブックにデータを配置して、AJSルートのブックを作成する。
+    /// テンプレートブックにデータを配置して、Jp1Ajsブックを作成する。
     /// </summary>
     class UpdateBook
     {

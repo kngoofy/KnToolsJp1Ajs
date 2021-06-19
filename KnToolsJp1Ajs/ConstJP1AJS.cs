@@ -14,7 +14,6 @@ namespace KnToolsJp1Ajs
         //Excelのシート名
         public static readonly string SHEETNAME_INDEX="Index";
         public static readonly string SHEETNAME_UNIT = "Unit";
-
         public static readonly string SHEETNAME_NEXT = "Next";
         public static readonly string SHEETNAME_FILE = "File";
         public static readonly string SHEETNAME_AJSPRINT = "Ajsprint";

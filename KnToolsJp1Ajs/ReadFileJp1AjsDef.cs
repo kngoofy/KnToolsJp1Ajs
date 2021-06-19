@@ -8,16 +8,16 @@ using System.IO;
 namespace KnToolsJp1Ajs
 {
     /// <summary>
-    /// JP1AJS定義ファイルを読み込んでストリング型orList型に組み立てる
+    /// ユニット定義ファイルを読み込んでstring型 or List型に組み立てる
     /// </summary>
     public class ReadFile
     {
-        /*public ReadFileJp1AjsDef()
-        {
-        }
-        */
-
-        //
+        
+        /// <summary>
+        /// ユニット定義ファイルを読み込みString型に格納
+        /// </summary>
+        /// <param name="filePath">ユニット定義ファイル</param>
+        /// <returns></returns>
         public static string ReadFileToString(string filePath)
         {
             var text = File.ReadAllText(filePath, Encoding.Default);
@@ -25,7 +25,12 @@ namespace KnToolsJp1Ajs
             
             return text;
         }
-        //
+
+        /// <summary>
+        /// ユニット定義ファイルを読み込みList型に格納
+        /// </summary>
+        /// <param name="filePath">ユニット定義ファイル</param>
+        /// <returns></returns>
         public static List<string> ReadFileToList(string filePath)
         {
             var lines = File.ReadAllLines(filePath, Encoding.Default);

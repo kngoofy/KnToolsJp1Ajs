@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    ///  JP1AJSのユニット
+    ///  ユニット
     /// </summary>
     public class Unit : IUnit
     {
@@ -74,9 +74,8 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
             {
                 cloned.ArList = new List<(string, string)>(ArList);
             }
-            return cloned;
 
-            //return (Unit)MemberwiseClone();
+            return cloned;
         }
 
         //プロパティをListで返す

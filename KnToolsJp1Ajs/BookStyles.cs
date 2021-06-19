@@ -9,18 +9,18 @@ namespace KnToolsJp1Ajs
     class BookStyles
     {
         /// <summary>
-        /// 使用スタイルを作成する。 static method
+        /// 使用スタイルを作成する。
         /// </summary>
-        /// <param name="wb"></param>
+        /// <param name="wb">Book</param>
         /// <returns></returns>
         public static Dictionary<String, ICellStyle> CreateBookStyles(IWorkbook wb)
         {
             //作成したセルのスタイルをディクショナリで返すコレクションを作成
             var styles = new Dictionary<String, ICellStyle>();
 
-            //
-            IFont font = wb.CreateFont();
-            ICellStyle style = wb.CreateCellStyle();
+            //fontとstyle
+            IFont font;         // = wb.CreateFont();
+            ICellStyle style;   // = wb.CreateCellStyle();
 
             // (a)スタイルエイリアス[topleft]ディクショナリに追加
             font = CreateFont(wb);
@@ -93,13 +93,12 @@ namespace KnToolsJp1Ajs
             styles.Add("leftBox", style);
 
             return styles;
-
         }
 
         /// <summary>
         /// フォント作成
         /// </summary>
-        /// <param name="wb"></param>
+        /// <param name="wb">Book</param>
         /// <returns></returns>
         private static IFont CreateFont(IWorkbook wb)
         {
@@ -109,7 +108,7 @@ namespace KnToolsJp1Ajs
         /// <summary>
         /// セルスタイル作成
         /// </summary>
-        /// <param name="wb"></param>
+        /// <param name="wb">Book</param>
         /// <returns></returns>
         private static ICellStyle CreateStyle(IWorkbook wb)
         {
@@ -119,7 +118,7 @@ namespace KnToolsJp1Ajs
         /// <summary>
         /// セルスタイル作成 枠あり
         /// </summary>
-        /// <param name="wb"></param>
+        /// <param name="wb">Book</param>
         /// <returns></returns>
         private static ICellStyle CreateBorderedStyle(IWorkbook wb)
         {
@@ -132,6 +131,7 @@ namespace KnToolsJp1Ajs
             style.LeftBorderColor = (IndexedColors.Black.Index);
             style.BorderTop = BorderStyle.Thin;
             style.TopBorderColor = (IndexedColors.Black.Index);
+
             return style;
         }
 

@@ -67,7 +67,7 @@
     <Compile Include="Adapter.cs" />
     <Compile Include="ConstJP1AJS.cs" />
     <Compile Include="BookStyles.cs" />
-    <Compile Include="CreateNewTemplateBook.cs" />
+    <Compile Include="TemplateBook.cs" />
     <Compile Include="Jp1AjsDef\IAttribute.cs" />
     <Compile Include="Jp1AjsDef\IFlwjUnit.cs" />
     <Compile Include="Jp1AjsDef\IJobnetUnit.cs" />
@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Data\jp1def-test04.txt" />
     <Content Include="Data\jp1def-test03.txt" />
     <Content Include="Data\jp1def-test02.txt" />
     <Content Include="Data\jp1def-test01.txt" />

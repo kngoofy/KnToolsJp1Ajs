@@ -11,17 +11,17 @@ namespace KnToolsJp1Ajs
     class Program
     {
         /// <summary>
-        /// コンソールアプリ用のエントリポイント メイン
+        /// コンソールアプリ用のエントリポイント
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
 
-            //テンプレートブック名
-            string templateBook = "NewTemplateJP1AJS.xlsx";
             //テンプレートであるブックを新規作成
-            //var makeSheet = new CreateNewTemplateBook(templateBook);
-            CreateNewTemplateBook.NewExcelBook(templateBook);
+            string templateBook = "TemplateJP1AJS.xlsx";
+            TemplateBook.CreateBook(templateBook);
+
+            return;
 
             //
             var file = @"E:\02.Kazu-Development\01.VisualStudio\KnToolsJp1Ajs\KnToolsJp1Ajs\Data\jp1def-test02.txt";

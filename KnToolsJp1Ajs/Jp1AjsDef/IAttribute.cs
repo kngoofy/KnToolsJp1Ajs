@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    /// ユニット属性パラメーターインターフェース
+    /// ユニット属性パラメーター インターフェース
     /// </summary>
     public interface IAttribute
     {

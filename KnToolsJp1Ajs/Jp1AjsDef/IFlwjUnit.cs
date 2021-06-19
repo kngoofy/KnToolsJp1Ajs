@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    /// JP1AJSのファイル受信ユニット インターフェース
+    /// ファイル受信ユニット インターフェース
     /// </summary>
     public interface IFlwjUnit
     {

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    /// JP1AJSのジョブネットユニット インターフェース
+    /// ジョブネットユニット インターフェース
     /// </summary>
     public interface IJobnetUnit
     {
         //
         string Sz { get; set; }
-        //List<string> el = new List<string>();      //=DERIADO501,j,+240+144;
-        //List<string> ar = new List<string>();      //=(f=DERIAD0501,t=DERIAD0502, seq);
+        //List<string> el = new List<string>();      //=TESTUNITADO501,j,+240+144;
+        //List<string> ar = new List<string>();      //=(f=TESTUNITAD0501,t=TESTUNITAD0502, seq);
         string Sd { get; set; }
         string St { get; set; }
         string Cy { get; set; }

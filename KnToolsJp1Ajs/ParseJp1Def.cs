@@ -10,7 +10,7 @@ using Unclazz.Jp1ajs2.Unitdef.Parser;
 namespace KnToolsJp1Ajs
 {
     /// <summary>
-    /// JP1AJSの定義ファイルのパーサー
+    /// 定義ファイルのパーサー
     /// </summary>
     class ParseJp1Def
     {

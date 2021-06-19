@@ -3,25 +3,25 @@
     ty=n;
     cm="testAJS";
     sz=10x8; 
-    el=DERIAD05,n,+240+144;
-    el=DERIAD09,n,+400+528;
-    el=DERIAD20,n,+560+336;
-    ar=(f=DERIAD05,t=DERIAD09,sea);
-    ar=(f=DERIAD05,t=DERIAD20,sea);
-    ar=(f=FLCK_DDDD,t=DERIAD20,sea);
+    el=TESTUNITYY05,n,+240+144;
+    el=TESTUNITAD09,n,+400+528;
+    el=TESTUNITAD20,n,+560+336;
+    ar=(f=TESTUNITYY05,t=TESTUNITAD09,sea);
+    ar=(f=TESTUNITYY05,t=TESTUNITAD20,sea);
+    ar=(f=FLCK_DDDD,t=TESTUNITAD20,sea);
     sd=1,en;
     st=1,+00:00;
     sh=1,ca;
     shd=1,2;
-    unit=DERIADO5,,ipluser,;
+    unit=TESTUNITADO5,,jpluser,;
     {
         ty=n;
-        cm="DERIAD05    no Net";
+        cm="TESTUNITYY05ネットコメント";
         sz=10x8;
-        el=DERIADO501,j,+240+144;
-        el=DERIAD0502,j,+560+144;
+        el=TESTUNITADO501,j,+240+144;
+        el=TESTUNITYY0502,j,+560+144;
         el=FLCK_DDDD,j,+560+144;      
-        ar=(f=DERIAD0501,t=DERIAD0502, seq);
+        ar=(f=TESTUNITYY0501,t=TESTUNITYY0502, seq);
         sd=1,2018/11/01;
         st=1,+00:00;
         cy=1,(1.d);
@@ -29,25 +29,25 @@
         shd=1,2;
         de=n;
         ha=y;
-        unit=DERIAD0501,,jpluser,;
+        unit=TESTUNITYY0501,,jpluser,;
         {
             ty=j;
             cm="IF-";
-            te="/nkSec/jobct Il/scripts/execjob -a derico EUDR0302 /nkSec/derico/batch/if-server/script/start_stphandler.sh";
-            un="appadm";
+            te="/usr/bin/test501.sh";
+            un="unusr";
             tho=0;
             eu=def;
         }
-        unit=DERIAD0502,,ipluser,;
+        unit=TESTUNITYY0502,,jpluser,;
         {
             ty=j;
             cm="G監視起動";
-            te="/nkSec/jobct 1/scripts/execiob -a derico EUDR6060 /nkSec/infra/scripts/gcchkctl -b /nkSec start";
+            te="/usr/bin/test502.sh";
             un="appadam";
             tho=0;
             eu=def;
         }
-        unit=FLCK_DDDD,,ipluser,;
+        unit=FLCK_DDDD,,jpluser,;
         {
             ty=flwj;
             cm="FLCKジョブ";
@@ -58,59 +58,59 @@
             eu=def;
         }
     }
-    unit=DERIADO9,,ipluser,;
+    unit=TESTUNITADO9,,jpluser,;
     {
         ty=n;
         cm="Strategyebl21(+)(17:00)";
         sz=10x8;
-        el=DERIAD0901,j,+240+144;
+        el=TESTUNITAD0901,j,+240+144;
         el=SO_YKH-DR012,j,+560+144;
-        ar=(f=DERIAD0901,t=SO_YKH-DR012, seq);
+        ar=(f=TESTUNITAD0901,t=SO_YKH-DR012, seq);
         sd=1.2018/11/01;
-        st=1,17:00;
+        st=1.17:00;
         cy=1,(1,d);
         sh=1,ca;
         shd=1,2;
         de=n; 
-        unit DERIAD0901,,jpluser,;
+        unit TESTUNITAD0901,,jpluser,;
         {
             ty=j;
-            cm="StratergyWeb()";
-            te="/nkSec/jobct 1/scripts/execjob -a derico EUDRO300 /nkSec/derico/batch/scripts/b_stweb_trade_mk_1st.csh";
-            un="appadm";
+            cm="コメントジョブ";
+            te="/usr/bin/test502.sh";
+            un="unusr";
             tho=0;
             eu=def;
         }
-        unit=SO_YKH-DR012,,pluser,;
+        unit=SO_YKH-DR012,,jp1user,;
         {
             ty=j;
-            cm="ID=YKHODRO 12/Derico_SH_OTCTrade Online.csv";
-            te="/HLFT/unvo/script/jpl hulsnd.sh -fl YKHDR012";
+            cm="ID=HULFTID csvfile";
+            te="/HULFT/hulsnd.sh -f IDhogeHULFT";
             un="hulft";
             tho=0; 
             eu=def;
         }    
     }
-    unit=DERIAD20,,jpluser,;
+    unit=TESTUNITAD20,,jpluser,;
     {
         ty=n;
         cm="f-Basel21(B) (15:00)";
         sz=10x8;
-        el=DERIAD2001,j.+240+144;
+        el=TESTUNITAD2001,j.+240+144;
         el=SD_FBSDR014,j,+560+144;
-        ar=(DERIAD2001,t=SD_FBSDR014.sea);
+        ar=(TESTUNITAD2001,t=SD_FBSDR014.sea);
         sd=1,2020/03/01;
         st=1,15:00;
         cy=1,(1,d);
         sh=1,ca;
         shd=1,2;
         de=n;
-        unit=DERIAD2001,,jpluser,;
+        unit=TESTUNITAD2001,,jpluser,;
         {
             ty=j;
-            cm="f-Base連携ファイル (休日マスタ情報) 作成処理";
-            te="/nkSec/jobct 1/scripts/execiob a derico EUDR0300 /nkSec/derico/batch/scripts/b_fbase holiday_mk.csh";
-            un="appadm";
+            cm="連携ファイル (休日マスタ情報) 作成処理";
+            te="/test/batch/scripts/b_aaa.sh holiday";
+            un="unusr";
             tho=0;
             eu=def;
         }
@@ -118,7 +118,7 @@
         {
             ty=j;
             cm="ID=FBSDR014/holiday_to_fbase.csv";
-            te="/HLFT/unyo/script/jpl/hulsnd.sh - FBSDR014";
+            te="/HLFT/hulsnd.sh -f IDTESThulftxx";
             un="hulft";
             tho=0;
             eu=def;
