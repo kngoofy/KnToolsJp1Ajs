@@ -18,8 +18,11 @@ namespace KnToolsJp1Ajs
         public static readonly string SHEETNAME_FILE = "File";
         public static readonly string SHEETNAME_AJSPRINT = "Ajsprint";
 
-        //Author埋込み
-        private const string AUTHOR_NAME = "Nishi Kazuhito";
+        //ワシ
+        public const string AUTHOR_NAME = "K.Nishi";
+
+        //バージョン埋め込み
+        public static readonly string VERSION = "2022.04.20 Update";
 
     }
 }

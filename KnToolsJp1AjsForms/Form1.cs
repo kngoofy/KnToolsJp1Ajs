@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KnToolsJp1Ajs;
+using System.Net.Http;
 
 namespace KnToolsJp1AjsForms
 {
@@ -39,7 +40,7 @@ namespace KnToolsJp1AjsForms
             {
                 openFileDialog.Title = "JP1AJS定義のファイルを開く";
                 openFileDialog.InitialDirectory = @"c:\";
-                openFileDialog.Filter = "jp1def (*.def)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Filter = "jp1def (*.def)|*.def|text (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
@@ -55,12 +56,43 @@ namespace KnToolsJp1AjsForms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             _dict["AzNavel"] = checkBoxAzNavel.Checked;
             _dict["fBase"] = checkBoxfBase.Checked;
             _dict["Derico"] = checkBoxDerico.Checked;
+
+            /*
+            if (_dict["AzNavel"]) ;
+            if (_dict["fBase"]) ;
+            if (_dict["Derico"]) ;
+            */
+
+            // ここに実装
+
+            var tasks = new Task<string>[] {
+                  GetPageAsync(@"https://docs.microsoft.com/ja-jp/"),
+                  GetPageAsync(@"https://docs.microsoft.com/ja-jp/documentation/"),
+               };
+            var results = await Task.WhenAll(tasks);
+            ;
+            // それぞれ先頭300文字を表示する
+            /*
+            textBox1.Text =
+               results[0].Substring(0, 300) +
+               Environment.NewLine + Environment.NewLine +
+               results[1].Substring(0, 300);
+            */
+
         }
+        private readonly HttpClient _httpClient = new HttpClient();
+
+        private async Task<string> GetPageAsync(string urlstr)
+        {
+            var str = await _httpClient.GetStringAsync(urlstr);
+            return str;
+        }
+
 
         //JP1AJSのAJSPRINT出力形式ファイルをドロップしたときのブック作成処理実行
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -72,17 +104,12 @@ namespace KnToolsJp1AjsForms
             for (int i = 0; i < filePaths.Length; i++)
             {
                 string filePath = filePaths[i];
-                textBox1.Text += Path.GetFileName(filePath)+";";
+                textBox1.Text += Path.GetFileName(filePath) + ";";
                 var bookPath = Path.GetDirectoryName(filePath) + @"\"
                          + Path.GetFileNameWithoutExtension(filePath) + ".xlsx";
                 CreateBookFromForms.CreateBookFromFilePath(filePath, bookPath);
             }
 
-            //var makebook = new AdapterMain();
-            //var file = textBox1.Text.Replace(@"\\", @"\");
-            //textBox1.Text = file;
-            //makebook.MakeJp1DefBookAdapter(file);
-            //CreateBookFromForms.CreateBookFromFilePath(file, null);
         }
 
         //JP1AJSのAJSPRINT出力形式ファイルをドロップしたときのチェック

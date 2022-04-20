@@ -15,7 +15,7 @@ namespace KnToolsJp1Ajs
     /// <summary>
     /// Jp1Ajs定義ブックのテンプレート作成
     /// </summary>
-    class TemplateBook
+    class CreateNewTemplateBook
     {
         public static bool CreateBook(string bookName)
         {
