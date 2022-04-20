@@ -25,15 +25,16 @@ namespace KnToolsJp1AjsForms
         public Form1()
         {
             InitializeComponent();
-            checkBoxAzNavel.Checked = _dict["AzNavel"] = true;
-            checkBoxfBase.Checked = _dict["fBase"] = true;
-            checkBoxDerico.Checked = _dict["Derico"] = true;
+            //checkBoxAzNavel.Checked = _dict["AzNavel"] = true;
+            //checkBoxfBase.Checked = _dict["fBase"] = true;
+            //checkBoxDerico.Checked = _dict["Derico"] = true;
         }
 
         //ピクチャをクリックするとOpenFileDialogを出して、AJS定義ファイルを指定後ブック作成
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
             //var fileContent = string.Empty;
+            var holderName = Directory.GetCurrentDirectory();
             var filePath = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -56,42 +57,42 @@ namespace KnToolsJp1AjsForms
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
-            _dict["AzNavel"] = checkBoxAzNavel.Checked;
-            _dict["fBase"] = checkBoxfBase.Checked;
-            _dict["Derico"] = checkBoxDerico.Checked;
+            //_dict["AzNavel"] = checkBoxAzNavel.Checked;
+            //_dict["fBase"] = checkBoxfBase.Checked;
+            //_dict["Derico"] = checkBoxDerico.Checked;
 
-            /*
-            if (_dict["AzNavel"]) ;
-            if (_dict["fBase"]) ;
-            if (_dict["Derico"]) ;
-            */
+            ///*
+            //if (_dict["AzNavel"]) ;
+            //if (_dict["fBase"]) ;
+            //if (_dict["Derico"]) ;
+            //*/
 
-            // ここに実装
+            //// ここに実装
 
-            var tasks = new Task<string>[] {
-                  GetPageAsync(@"https://docs.microsoft.com/ja-jp/"),
-                  GetPageAsync(@"https://docs.microsoft.com/ja-jp/documentation/"),
-               };
-            var results = await Task.WhenAll(tasks);
+            //var tasks = new Task<string>[] {
+            //      GetPageAsync(@"https://docs.microsoft.com/ja-jp/"),
+            //      GetPageAsync(@"https://docs.microsoft.com/ja-jp/documentation/"),
+            //   };
+            //var results = await Task.WhenAll(tasks);
+            //;
+            //// それぞれ先頭300文字を表示する
+            ///*
+            //textBox1.Text =
+            //   results[0].Substring(0, 300) +
+            //   Environment.NewLine + Environment.NewLine +
+            //   results[1].Substring(0, 300);
+            //*/
             ;
-            // それぞれ先頭300文字を表示する
-            /*
-            textBox1.Text =
-               results[0].Substring(0, 300) +
-               Environment.NewLine + Environment.NewLine +
-               results[1].Substring(0, 300);
-            */
-
         }
-        private readonly HttpClient _httpClient = new HttpClient();
+        //private readonly HttpClient _httpClient = new HttpClient();
 
-        private async Task<string> GetPageAsync(string urlstr)
-        {
-            var str = await _httpClient.GetStringAsync(urlstr);
-            return str;
-        }
+        //private async Task<string> GetPageAsync(string urlstr)
+        //{
+        //    var str = await _httpClient.GetStringAsync(urlstr);
+        //    return str;
+        //}
 
 
         //JP1AJSのAJSPRINT出力形式ファイルをドロップしたときのブック作成処理実行
@@ -125,7 +126,7 @@ namespace KnToolsJp1AjsForms
             }
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void PictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }
@@ -134,20 +135,25 @@ namespace KnToolsJp1AjsForms
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBoxAzNavel_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxAzNavel_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
+        { 
+        }
+
 
     }
 }

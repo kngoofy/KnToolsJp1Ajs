@@ -37,61 +37,18 @@ namespace KnToolsJp1Ajs
                 Console.WriteLine(" -o    生成されるJp1AjsBookファイル 指定がない場合は[" + OutPutBookName + "]");
                 Console.WriteLine(" -h    このヘルプ");
                 Console.WriteLine(" 引数がない場合もこのヘルプが表示されます。[" + args.Length + "]");
-
                 return;
             }
 
             //テンプレートであるブックを新規作成
-            //string templateBook = "TemplateJP1AJS.xlsx";
             CreateNewTemplateBook.CreateBook(OutPutBookName);
 
-            //return;
-
-            //(1) Sndシート[snd] 中身肉付け オプションでファイルが指定されていたら
+            //中身肉付け オプションでファイルが指定されていたら
             if (target["ajs"] != null && File.Exists(target["ajs"]))
             {
-                ;
-                var units =BuildJp1AjsDef.StreamBuildJp1AjsDefUnits(target["ajs"]);
-                //var lines = BuildJp1AjsDef.StreamBuildJp1AjsDef(target["ajs"]);
-
-                //UpdateBook.UpdateExcelBook(OutPutBookName, units, lines, CreatedBook);
-                UpdateBook.UpdateExcelBook(OutPutBookName, units);
-
-                //ajsユニット定義ファイルを読み込んでstring型へ
-                //string strDef = ReadFile.ReadFileToString(target["ajs"]);
-                //ajsユニット定義ファイルをパース string型から
-                //var units = ParseJp1Def.ParseAjsDefFromString(strDef, out string ajsname);
-
-                //ajsユニット定義ファイルを読み込んでList型へ
-                //List<string> lines = ReadFile.ReadFileToList(file);
-
-
-                //UpdateExcelBook(string templateFile, List<Unit> lists, List<string> lines, string outputFile)
-
-
-                //List<HulftSndDef> hulftSndDatas = BuildHulftSndDef.StreamBuildHulftSndDef(target["ajs"]);
-                //var updateBookSndSheet = new UpdateBook(OutPutBookName, hulftSndDatas);
+                var ajsdef = BuildJp1AjsDef.StreamBuildJp1AjsDefUnits(target["ajs"]);
+                UpdateBook.UpdateExcelBook(OutPutBookName, ajsdef);
             }
-
-
-            ////
-            //var file = @"E:\02.Kazu-Development\01.VisualStudio\KnToolsJp1Ajs\KnToolsJp1Ajs\Data\jp1def-test02.txt";
-
-            ////ajsユニット定義ファイルを読み込んでstring型へ
-            //string strDef = ReadFile.ReadFileToString(file);
-            ////ajsユニット定義ファイルをパース string型から
-            //var units = ParseJp1Def.ParseAjsDefFromString(strDef, out string ajsname);
-
-            ////ajsユニット定義ファイルを読み込んでList型へ
-            //List<string> lines = ReadFile.ReadFileToList(file);
-
-            //////作成するブック名
-            //string CreatedBook = $@"Jp1Ajs-{ajsname}.xlsx";
-            ////AJSブック作成実行
-            //UpdateBook.UpdateExcelBook(OutPutBookName, units, lines, CreatedBook);
-
-            return;
-
         }
 
     }

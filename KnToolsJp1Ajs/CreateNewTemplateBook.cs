@@ -11,41 +11,46 @@ using KnToolsJp1Ajs.Jp1AjsDef;
 
 namespace KnToolsJp1Ajs
 {
-
     /// <summary>
     /// Jp1Ajs定義ブックのテンプレート作成
     /// </summary>
-    class CreateNewTemplateBook
+    public class CreateNewTemplateBook
     {
+        /// <summary>
+        /// Jp1AjsBookテンプレートの作成
+        /// </summary>
+        /// <param name="bookName"></param>
+        /// <returns>bool</returns>
         public static bool CreateBook(string bookName)
         {
-            //JP1/AJS定義のBookのテンプレートを新規作成
-            IWorkbook book = new XSSFWorkbook();
-
-            //Bookのスタイル作成
-            var styles = BookStyles.CreateBookStyles(book);
-
-            //定型シートを作成挿入
-            var sheetIndex = book.CreateSheet(ConstJP1AJS.SHEETNAME_INDEX);
-            var sheetUnit = book.CreateSheet(ConstJP1AJS.SHEETNAME_UNIT);
-            var sheetFile = book.CreateSheet(ConstJP1AJS.SHEETNAME_FILE);
-            var sheetNext = book.CreateSheet(ConstJP1AJS.SHEETNAME_NEXT);
-            var sheetAjsprint = book.CreateSheet(ConstJP1AJS.SHEETNAME_AJSPRINT);
-
-            //定型シートの中身を整える
-            MakeSheetIndex(sheetIndex, styles);
-            MakeSheetUnit(sheetUnit, styles);
-            MakeSheetFile(sheetFile, styles);
-            MakeSheetNext(sheetNext, styles);
-            MakeSheetAjsprint(sheetAjsprint, styles);
-
             try
             {
-                //テンプレートBookを書き出す
+                //JP1/AJS定義のBookのテンプレートを新規作成
+                IWorkbook book = new XSSFWorkbook();
+
+                //Bookのスタイル作成
+                var styles = BookStyles.CreateBookStyles(book);
+
+                //定型シートを作成挿入
+                var sheetIndex = book.CreateSheet(ConstJP1AJS.SHEETNAME_INDEX);
+                var sheetUnit = book.CreateSheet(ConstJP1AJS.SHEETNAME_UNIT);
+                var sheetFile = book.CreateSheet(ConstJP1AJS.SHEETNAME_FILE);
+                var sheetNext = book.CreateSheet(ConstJP1AJS.SHEETNAME_NEXT);
+                var sheetAjsprint = book.CreateSheet(ConstJP1AJS.SHEETNAME_AJSPRINT);
+
+                //定型シートの中身を整える
+                MakeSheetIndex(sheetIndex, styles);
+                MakeSheetUnit(sheetUnit, styles);
+                MakeSheetFile(sheetFile, styles);
+                MakeSheetNext(sheetNext, styles);
+                MakeSheetAjsprint(sheetAjsprint, styles);
+
+                //    //テンプレートBookを書き出す
                 using (var fs = new FileStream(bookName, FileMode.Create))
                 {
                     book.Write(fs);
                 }
+
             }
             catch (Exception ex)
             {
@@ -84,8 +89,10 @@ namespace KnToolsJp1Ajs
             foreach (var (no, name) in titles)
             {
                 WriteCell(sheet, styles["indexBoxNo"], (y + no, x), no.ToString());
-                var link = new XSSFHyperlink(HyperlinkType.Document);
-                link.Address = name + "!A1";
+                var link = new XSSFHyperlink(HyperlinkType.Document)
+                {
+                    Address = name + "!A1"
+                };
                 WriteCell(sheet, styles["indexBoxTitle"], (y + no, x + 1), name, link);
             }
 
@@ -113,7 +120,7 @@ namespace KnToolsJp1Ajs
 
             //ヘッダーの組み立て
             var unit = new Unit("Header");
-            var list = unit.getListValues();
+            var list = unit.GetListValues();
 
             // データヘッダーブロックの書き出し
             (int y, int x) = (2, 1);
@@ -132,7 +139,7 @@ namespace KnToolsJp1Ajs
             {
                 sheet.AutoSizeColumn(i, true);
             }
-      
+
             return true;
         }
 

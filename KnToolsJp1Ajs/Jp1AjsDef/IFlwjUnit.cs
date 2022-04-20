@@ -12,6 +12,10 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
     public interface IFlwjUnit
     {
         //[flwf="監視対象ファイル名";]
+        
+        /// <summary>
+        /// プロパティ 監視対象ファイル
+        /// </summary>
         string Flwf { get; set; }
 
         /*

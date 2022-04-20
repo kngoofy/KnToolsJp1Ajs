@@ -11,34 +11,60 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
     /// </summary>
     public interface IUnit : IAttribute, IJobnetUnit, IJobUnit, IFlwjUnit
     {
-        //ベース名
+        /// <summary>
+        /// プロパティ ベース名
+        /// </summary>
         string BaseName { get; set; }
 
-        //親ユニット名
+
+        /// <summary>
+        /// プロパティ 親ユニット名
+        /// </summary>
         string SuperUnitName { get; set; }
 
-        //ルート・トップのユニット名
+
+        /// <summary>
+        /// プロパティ ルート・トップのユニット名
+        /// </summary>
         string RootUnitName { get; set; }
 
-        //ユニット名
+
+        /// <summary>
+        /// プロパティ ユニット名
+        /// </summary>
         string UnitName { get; set; }
 
-        //ユニットタイプ
+
+        /// <summary>
+        /// プロパティ ユニットタイプ
+        /// </summary>
         string Ty { get; set; }
 
-        //コメント
+        /// <summary>
+        /// プロパティ コメント
+        /// </summary>
         string Cm { get; set; }
-        //保留
+
+        /// <summary>
+        /// プロパティ 保留
+        /// </summary>
         string Ha { get; set; }
 
         //クラスのコピークーロンを返すメソッド
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         Unit Clone();
 
-        //プロパティをListで返す
-        List<string> getListValues();
+        /// <summary>
+        /// プロパティをListで返す
+        /// </summary>
+        /// <returns></returns>
+        List<string> GetListValues();
 
-        //クリアリセット
+        /// <summary>
+        /// クリアリセット
+        /// </summary>
         void ClearReset();
-
-        }
     }
+}

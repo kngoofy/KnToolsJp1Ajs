@@ -15,14 +15,14 @@ namespace KnToolsJp1Ajs
     class ParseJp1Def
     {
         //public static List<Jp1AjsDef.Unit> ParseAjsDefFromString(string strAjsDef, out string ajsname)
-        public static Jp1AjsDef.AjsDef ParseAjsDefFromString(string strAjsDef, out string ajsname)
+        public static Jp1AjsDef.AjsDef ParseAjsDefFromString(string strAjsDef)
         {
 
             //パース実行
             Unclazz.Jp1ajs2.Unitdef.IUnit unit = Unclazz.Jp1ajs2.Unitdef.Unit.Parse(strAjsDef);
 
             //AJS名 out string 
-            ajsname = unit.Name;
+            var ajsname = unit.Name;
 
             //一段下のネット
             IEnumerable<Unclazz.Jp1ajs2.Unitdef.IUnit> jobNets = unit.SubUnits;
@@ -98,11 +98,13 @@ namespace KnToolsJp1Ajs
                 }
             }
 
-
-            var ajsDef = new Jp1AjsDef.AjsDef();
-            ajsDef.ajsName = ajsname;
-            ajsDef.ajsDefLists = strAjsDef.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None).ToList();
-            ajsDef.units = list;
+            // AjsDefクラスに組み立て
+            var ajsDef = new AjsDef
+            {
+                AjsName = ajsname,
+                AjsDefLists = strAjsDef.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None).ToList(),
+                Units = list
+            };
 
             return ajsDef;
             //return list;

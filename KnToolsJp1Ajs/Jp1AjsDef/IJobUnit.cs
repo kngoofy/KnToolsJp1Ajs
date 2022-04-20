@@ -11,20 +11,29 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
     /// </summary>
     public interface IJobUnit
     {
-
-        //[te="コマンドテキスト";]
+        /// <summary>
+        /// プロパティ te="コマンドテキスト"
+        /// </summary>
         string Te { get; set; }
 
-        //[sc="スクリプトファイル名";]
+        /// <summary>
+        /// プロパティ //[sc="スクリプトファイル名";]
+        /// </summary>
         string Sc { get; set; }
 
-        //[un="実行ユーザー名";]
+        /// <summary>
+        /// プロパティ [un="実行ユーザー名";]
+        /// </summary>
         string Un { get; set; }
 
-        //[tho=n;]異常終了のしきい値
+        /// <summary>
+        /// プロパティ [tho=n;]異常終了のしきい値
+        /// </summary>
         string Tho { get; set; }
 
-        //[eu={ent|def};]ジョブ実行時のJP1ユーザーを定義
+        /// <summary>
+        /// プロパティ [eu={ent|def};]ジョブ実行時のJP1ユーザーを定義
+        /// </summary>
         string Eu { get; set; }
 
         /*

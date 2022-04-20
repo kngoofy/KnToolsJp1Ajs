@@ -110,10 +110,10 @@ namespace KnToolsJp1Ajs
         /// </summary>
         /// <param name="wb">Book</param>
         /// <returns></returns>
-        private static ICellStyle CreateStyle(IWorkbook wb)
-        {
-            return wb.CreateCellStyle();
-        }
+        //private static ICellStyle CreateStyle(IWorkbook wb)
+        //{
+        //    return wb.CreateCellStyle();
+        //}
 
         /// <summary>
         /// セルスタイル作成 枠あり

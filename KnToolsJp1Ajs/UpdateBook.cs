@@ -12,37 +12,37 @@ namespace KnToolsJp1Ajs
     /// <summary>
     /// テンプレートブックにデータを配置して、Jp1Ajsブックを作成する。
     /// </summary>
-    class UpdateBook
+    public class UpdateBook
     {
         //public static bool UpdateExcelBook(string templateFile, List<Unit> lists, List<string> lines, string outputFile)
         public static bool UpdateExcelBook(string outputFile, Jp1AjsDef.AjsDef ajsDef)
         {
-            List<Unit> lists = ajsDef.units;
-            List<string> lines = ajsDef.ajsDefLists;
+            List<Unit> lists = ajsDef.Units;
+            List<string> lines = ajsDef.AjsDefLists;
 
-            //try
-            //{
-            var book = WorkbookFactory.Create(outputFile);
-
-            //Bookのスタイル作成
-            Dictionary<String, ICellStyle> styles = BookStyles.CreateBookStyles(book);
-
-            UpdateSheetUnit(book, lists, styles);
-            UpdateSheetFile(book, lists, styles);
-            UpdateSheetNext(book, lists, styles);
-            UpdateSheetAjsprint(book, lines, styles);
-
-            // UpdateしたExcelファイルを閉じる
-            using (var fs = new FileStream(outputFile, FileMode.Create))
+            try
             {
-                book.Write(fs);
-            }
+                var book = WorkbookFactory.Create(outputFile);
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex);
-            //}
+                //Bookのスタイル作成
+                Dictionary<String, ICellStyle> styles = BookStyles.CreateBookStyles(book);
+
+                UpdateSheetUnit(book, lists, styles);
+                UpdateSheetFile(book, lists, styles);
+                UpdateSheetNext(book, lists, styles);
+                UpdateSheetAjsprint(book, lines, styles);
+
+                // UpdateしたExcelファイルを閉じる
+                using (var fs = new FileStream(outputFile, FileMode.Create))
+                {
+                    book.Write(fs);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             return true;
         }
@@ -65,7 +65,7 @@ namespace KnToolsJp1Ajs
             //List<string> list;
             for (int z = 0; z < lists.Count; z++)
             {
-                var list = lists[z].getListValues();
+                var list = lists[z].GetListValues();
                 list.Insert(0, (z + 1).ToString());
                 for (int u = 0; u < list.Count; u++)
                 {
@@ -74,7 +74,7 @@ namespace KnToolsJp1Ajs
             }
 
             //カラムのAutoSize
-            for (int i = 0; i < lists[0].getListValues().Count + 1; i++)
+            for (int i = 0; i < lists[0].GetListValues().Count + 1; i++)
             {
                 sheet.AutoSizeColumn(x + i, true);
             }

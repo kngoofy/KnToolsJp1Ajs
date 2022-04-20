@@ -7,33 +7,32 @@ using System.Threading.Tasks;
 namespace KnToolsJp1Ajs.Jp1AjsDef
 {
     /// <summary>
-    /// ユニット属性パラメーター インターフェース
+    /// ユニット属性パラメーター Attribute インターフェース
     /// </summary>
     public interface IAttribute
     {
         /// <summary>
-        /// ユニット名です。
+        /// プロパティ ユニット名
         /// </summary>
-        /// <value>ユニット名</value>
+        /// <value>string ユニット名</value>
         //string UnitName { get; set; }
 
         /// <summary>
-        /// JP1ユーザ名です。
+        /// プロパティ JP1ユーザ名
         /// </summary>
-        /// <value>JP1ユーザ名</value>
+        /// <value>string JP1ユーザ名</value>
         string Jp1UserName { get; set; }
 
         /// <summary>
-        /// 資源グループ名です。
+        /// プロパティ 資源グループ名
         /// </summary>
-        /// <value>資源グループ名</value>
+        /// <value>string 資源グループ名</value>
         string ResourceGroupName { get; set; }
 
         /// <summary>
-        /// 許可モードです。
+        /// プロパティ 許可モード
         /// </summary>
-        /// <value>許可モード</value>
+        /// <value>string 許可モード</value>
         string PermissionMode { get; set; }
-
     }
 }

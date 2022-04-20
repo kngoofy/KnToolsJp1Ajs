@@ -79,7 +79,7 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
         }
 
         //プロパティをListで返す
-        public List<string> getListValues()
+        public List<string> GetListValues()
         {
             var list = new List<string>
             {

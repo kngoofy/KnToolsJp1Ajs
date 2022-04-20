@@ -12,31 +12,46 @@ namespace KnToolsJp1Ajs
     /// </summary>
     public static class BuildJp1AjsDef
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public static Jp1AjsDef.AjsDef StreamBuildJp1AjsDefUnits(string filename)
         {
             string htmlText = File.ReadAllText(filename);
             return StringBuildJp1AjsDefUnits(htmlText);
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static Jp1AjsDef.AjsDef StringBuildJp1AjsDefUnits(string text)
         {
-
-            
-            var units = ParseJp1Def.ParseAjsDefFromString(text, out string ajsname);
-
-            return units;
+            return ParseJp1Def.ParseAjsDefFromString(text);
         }
 
-        public static List<string> StreamBuildJp1AjsDef(string fileName)
-        {
-            return ReadFile.ReadFileToList(fileName);
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="fileName"></param>
+        ///// <returns></returns>
+        //public static List<string> StreamBuildJp1AjsDef(string fileName)
+        //{
+        //    return ReadFile.ReadFileToList(fileName);
+        //}
 
-        public static List<string> StringBuildJp1AjsDef(string str)
-        {
-            return str.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None).ToList();
-        }
-
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="str"></param>
+        ///// <returns></returns>
+        //public static List<string> StringBuildJp1AjsDef(string str)
+        //{
+        //    return str.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None).ToList();
+        //}
 
     }
 

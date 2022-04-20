@@ -11,15 +11,41 @@ namespace KnToolsJp1Ajs.Jp1AjsDef
     /// </summary>
     public interface IJobnetUnit
     {
-        //
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string Sz { get; set; }
         //List<string> el = new List<string>();      //=TESTUNITADO501,j,+240+144;
         //List<string> ar = new List<string>();      //=(f=TESTUNITAD0501,t=TESTUNITAD0502, seq);
+
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string Sd { get; set; }
+        
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string St { get; set; }
+
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string Cy { get; set; }
+
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string Sh { get; set; }
+        
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string Shd { get; set; }
+        
+        /// <summary>
+        /// プロパティ
+        /// </summary>
         string De { get; set; }
 
         /*

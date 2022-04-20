@@ -22,14 +22,14 @@ namespace KnToolsJp1Ajs
             CreateNewTemplateBook.CreateBook(templateBook);
 
             //ユニット定義ファイルを読み込んでstring型へ変換してからパース 
-            string strAjsDef = ReadFile.ReadFileToString(unitFile);
-            var units = ParseJp1Def.ParseAjsDefFromString(strAjsDef, out string ajsname);
+            //string strAjsDef = ReadFile.ReadFileToString(unitFile);
+            //var units = ParseJp1Def.ParseAjsDefFromString(strAjsDef, out string ajsname);
 
             //ユニット定義ファイルを読み込んでList型へ
-            List<string> lines = ReadFile.ReadFileToList(unitFile);
+            //List<string> lines = ReadFile.ReadFileToList(unitFile);
 
             //作成するブック名
-            string CreatedBook = bookFile ?? $@"Jp1Ajs-{ajsname}.xlsx";
+         //   string CreatedBook = bookFile ?? $@"Jp1Ajs-{ajsname}.xlsx";
             
             //AjsDefブック作成実行
             //UpdateBook.UpdateExcelBook(templateBook, units, lines, CreatedBook);
@@ -49,13 +49,13 @@ namespace KnToolsJp1Ajs
             CreateNewTemplateBook.CreateBook(templateBook);
 
             //ajsユニット定義ファイルをパース string型からパース
-            var units = ParseJp1Def.ParseAjsDefFromString(strAjsDef, out string ajsname);
+            //var units = ParseJp1Def.ParseAjsDefFromString(strAjsDef, out string ajsname);
 
             //string型のユニット定義をList型へ
-            List<string> lines = strAjsDef.Split('\n').ToList();
+            //List<string> lines = strAjsDef.Split('\n').ToList();
 
             //作成するブック名
-            string CreatedBook = bookName ?? $@"Jp1Ajs-{ajsname}.xlsx";
+            //string CreatedBook = bookName ?? $@"Jp1Ajs-{ajsname}.xlsx";
             
             //AjsDefブック作成実行
             //UpdateBook.UpdateExcelBook(templateBook, units, lines, CreatedBook);
