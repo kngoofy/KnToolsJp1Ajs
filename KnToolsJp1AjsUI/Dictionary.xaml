@@ -9,20 +9,38 @@
         <Setter Property="Opacity" Value="0.5" />
     </Style>
 
+    <Style x:Key="DropApple" TargetType="{x:Type Image}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="AllowDrop" Value="True"/>
+        <!--<Setter Property="Width" Value="230" />-->
+        <!--<Setter Property="Opacity" Value="0.5" />-->
+    </Style>
+
     <Style x:Key="WindowContentGrid" TargetType="{x:Type Grid}">
         <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style x:Key="GroupBox" TargetType="{x:Type GroupBox}">
+        <Setter Property="FontSize" Value="12pt" />
+        <Setter Property="FontFamily" Value="Meiryo UI" />
+        <Setter Property="Margin" Value="4,2,4,2" />
+        <!--<Setter Property="Width" Value="160" />-->
+        <!--<Setter Property="Height" Value="14" />-->
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
 
     <Style x:Key="Button" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="12pt" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Width" Value="200" />
+        <Setter Property="Margin" Value="0,4,3,4" />
+        <Setter Property="Width" Value="160" />
         <Setter Property="Height" Value="44" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <!--<Setter Property="IsTabStop" Value="False"/>-->
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="images\blueberries.jpg"/>
@@ -38,7 +56,7 @@
         <Setter Property="AllowDrop" Value="True"/>
         <Setter Property="Foreground" Value="DarkSlateBlue" />
         <Setter Property="FontSize" Value="12pt" />
-        <Setter Property="Margin" Value="10,0,0,0" />
+        <Setter Property="Margin" Value="2,0,4,0" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -46,11 +64,11 @@
     </Style>
 
     <Style x:Key="TextBox1" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
-        <Setter Property="Width" Value="1033" />
+        <Setter Property="Width" Value="680" />
     </Style>
 
     <Style x:Key="TextBox2" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
-        <Setter Property="Width" Value="650" />
+        <Setter Property="Width" Value="600" />
     </Style>
 
     <Style TargetType="{x:Type Label}">

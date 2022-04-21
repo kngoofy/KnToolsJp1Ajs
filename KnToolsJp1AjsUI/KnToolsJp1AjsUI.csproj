@@ -130,5 +130,11 @@
       <Name>KnToolsJp1Ajs</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="apple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="berries.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

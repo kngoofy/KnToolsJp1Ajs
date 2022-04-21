@@ -19,7 +19,7 @@ namespace KnToolsJp1AjsForms
     public partial class Form1 : Form
     {
         // Default System一覧 ブックを作成するSystemをチェック
-        Dictionary<string, bool> _dict = new Dictionary<string, bool>();
+        //Dictionary<string, bool> _dict = new Dictionary<string, bool>();
 
         //コンストラクタ
         public Form1()
@@ -34,8 +34,8 @@ namespace KnToolsJp1AjsForms
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             //var fileContent = string.Empty;
-            var holderName = Directory.GetCurrentDirectory();
-            var filePath = string.Empty;
+            //var holderName = Directory.GetCurrentDirectory();
+            string filePath;//= string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -57,7 +57,7 @@ namespace KnToolsJp1AjsForms
             }
         }
 
-        private async void Button1_Click(object sender, EventArgs e)
+        private  void Button1_Click(object sender, EventArgs e)
         {
             //_dict["AzNavel"] = checkBoxAzNavel.Checked;
             //_dict["fBase"] = checkBoxfBase.Checked;

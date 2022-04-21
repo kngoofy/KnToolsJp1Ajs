@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
 using KnToolsJp1Ajs;
+using Path = System.IO.Path;
 
 namespace KnToolsJp1AjsUI
 {
@@ -32,7 +33,7 @@ namespace KnToolsJp1AjsUI
             InitializeComponent();
 
             var holderName = Directory.GetCurrentDirectory();
-            Jp1AjsBookName.Text = holderName + "\\" + "Jp1AjsBook.xlsx";
+            tbJp1AjsBookName.Text = holderName + "\\" + "Jp1AjsBook.xlsx";
         }
 
         /// <summary>
@@ -57,65 +58,82 @@ namespace KnToolsJp1AjsUI
         /// </summary>
         private void Button_Click_SelectJp1AjsBook(object sender, RoutedEventArgs e)
         {
-            OpenDocumentJp1AjsBook();
+            //OpenFileDialogを開いて生成するExcelBookを指定
+            var file = tbJp1AjsBookName.Text;
+            file = MyOpenFileDialog(file, ".xlsx", "Jp1AjsBook(.xlsx)|*.xlsx", false);
+
+            //指定された場合テキストボックスにセット
+            if (!string.IsNullOrWhiteSpace(file)) tbJp1AjsBookName.Text = file;
+
+            //(string src, string des) = (tbJp1AjsBookName.Text, "");
+            //des= MyOpenFileDialog(src, ".xlsx", "Jp1AjsBook(.xlsx)|*.xlsx", false);
+            //if (!string.IsNullOrWhiteSpace(des)) (src,des) = (des,src);
+
         }
+
+        /// <summary>
+        /// Jp1Ajs定義ファイル(Snd)を指定するダイアログを呼び出すメソッド
+        /// </summary>
+        private void Button_Click_Jp1Ajs(object sender, RoutedEventArgs e)
+        {
+            //OpenDocumentDef(tbJp1AjsDefFileName);
+
+            //OpenFileDialogを開いてJp1Ajs定義ファイルを指定
+            var file = tbJp1AjsDefFileName.Text;
+            file = MyOpenFileDialog(file, ".def", "HultDefine(.def,*.txt)|*.def;*.txt|すべてのファイル(*.*)|*.*", true);
+
+            //指定された場合テキストボックスにセット
+            if (!string.IsNullOrWhiteSpace(file)) tbJp1AjsDefFileName.Text = file;
+
+        }
+
 
         /// <summary>
         /// ExcelBook ファイルをopenFileDialogにて設定するメソッド
         /// </summary>
-        private void OpenDocumentJp1AjsBook()
+        private string MyOpenFileDialog(string fileName, string defaultExt, string filter, bool checkFileExists)
         {
-            try
+            // OpenFileDialog クラスのインスタンスを生成
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            //Default ファイル名
+            openFileDialog.FileName = fileName;
+
+            //Default ファイルの種類
+            openFileDialog.DefaultExt = defaultExt;
+
+            //ファイルの種類リストを設定
+            openFileDialog.Filter = filter;
+
+            //存在しないといけないか？を指定
+            openFileDialog.CheckFileExists = checkFileExists;
+
+            // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
+            // ファイルのディレクトリー (フォルダー) を初期表示する
+            if (!string.IsNullOrWhiteSpace(fileName))
             {
-                // テキストボックスからファイル名 (ファイルパス) を取得
-                string fileName = this.Jp1AjsBookName.Text;
-
-                // OpenFileDialog クラスのインスタンスを生成
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                // 存在する場合は InitialDirectory プロパティに設定
+                string fileDir = Path.GetDirectoryName(fileName);
+                if (Directory.Exists(fileDir))
                 {
-                    openFileDialog.FileName = "Jp1AjsBook.xlsx";
-                    openFileDialog.DefaultExt = ".xlsx";
-                    openFileDialog.CheckFileExists = false;     //存在しなくも良いを指定
-
-                    // ファイルの種類リストを設定
-                    openFileDialog.Filter = "Jp1AjsBook(.xlsx)|*.xlsx";
-
-                    // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
-                    // ファイルのディレクトリー (フォルダー) を初期表示する
-                    if (fileName != string.Empty)
-                    {
-                        // FileInfo クラスのインスタンスを生成
-                        FileInfo fileInfo = new FileInfo(fileName);
-                        // ディレクトリー名 (ディレクトリーパス) を取得
-                        string directoryName = fileInfo.DirectoryName;
-                        // 存在する場合は InitialDirectory プロパティに設定
-                        if (Directory.Exists(directoryName))
-                        {
-                            openFileDialog.InitialDirectory = directoryName;
-                        }
-                    }
-
-                    // ダイアログを表示
-                    DialogResult dialogResult = openFileDialog.ShowDialog();
-                    if (dialogResult == System.Windows.Forms.DialogResult.Cancel)
-                    {
-                        // キャンセルされたので終了
-                        return;
-                    }
-
-                    // 選択されたファイル名 (ファイルパス) をテキストボックスに設定
-                    Jp1AjsBookName.Text = openFileDialog.FileName;
-
+                    openFileDialog.InitialDirectory = fileDir;
                 }
             }
-            catch (Exception ex)
+
+            // ダイアログを表示
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+            if (dialogResult == System.Windows.Forms.DialogResult.Cancel)
             {
-                MessageBox.Show(ex.Message);
+                // キャンセルされたので終了
+                return "";
             }
+
+            // 選択されたファイル名 (ファイルパス) をテキストボックスに設定
+            return openFileDialog.FileName;
         }
 
         /// <summary>
-        /// Jp1AjsBookTextBoxへドラッグオーバーのメソッド
+        /// Jp1AjsBookのTextBoxへドラッグオーバーのメソッド
         /// </summary>
         private void EhDragOverJp1AjsBookDef(object sender, System.Windows.DragEventArgs args)
         {
@@ -162,7 +180,7 @@ namespace KnToolsJp1AjsUI
         {
             args.Handled = true;    // Mark the event as handled, so TextBox's native Drop handler is not called.
             var fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
-            Jp1AjsBookName.Text = fileNames[0];
+            tbJp1AjsBookName.Text = fileNames[0];
         }
 
         /// <summary>
@@ -176,109 +194,149 @@ namespace KnToolsJp1AjsUI
         }
 
 
-        /// <summary>
-        /// Jp1Ajs定義ファイル(Snd)を指定するダイアログを呼び出すメソッド
-        /// </summary>
-        private void Button_Click_Jp1Ajs(object sender, RoutedEventArgs e)
-        {
-            OpenDocumentDef(tbJp1AjsDefFileName);
-        }
+        
+        ///// <summary>
+        ///// Jp1Ajs定義ファイルを指定するダイアログを表示するメソッド
+        ///// </summary>
+        ///// <param name="defName">WfpのTextBoxのコントロール</param>
+        //private void OpenDocumentDef(System.Windows.Controls.TextBox defName)
+        //{
+        //    try
+        //    {
+        //        // 
+        //        string fileName = defName.Text;
 
-        /// <summary>
-        /// Jp1Ajs定義ファイルを指定するダイアログを表示するメソッド
-        /// </summary>
-        /// <param name="defName">WfpのTextBoxのコントロール</param>
-        private void OpenDocumentDef(System.Windows.Controls.TextBox defName)
-        {
-            try
-            {
-                // 
-                string fileName = defName.Text;
+        //        // OpenFileDialog クラスのインスタンスを生成
+        //        using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        //        {
+        //            openFileDialog.FileName = System.IO.Path.GetFileName(fileName);
+        //            openFileDialog.DefaultExt = ".def";
+        //            openFileDialog.CheckFileExists = true;     //存在しなくてはいけない
 
-                // OpenFileDialog クラスのインスタンスを生成
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.FileName = System.IO.Path.GetFileName(fileName);
-                    openFileDialog.DefaultExt = ".def";
-                    openFileDialog.CheckFileExists = true;     //存在しなくてはいけない
+        //            // ファイルの種類リストを設定
+        //            openFileDialog.Filter = "HultDefine(.def,*.txt)|*.def;*.txt|すべてのファイル(*.*)|*.*";
 
-                    // ファイルの種類リストを設定
-                    openFileDialog.Filter = "HultDefine(.def,*.txt)|*.def;*.txt|すべてのファイル(*.*)|*.*";
+        //            // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
+        //            // ファイルのディレクトリー (フォルダー) を初期表示する
+        //            if (fileName != string.Empty)
+        //            {
+        //                // FileInfo クラスのインスタンスを生成
+        //                FileInfo fileInfo = new FileInfo(fileName);
+        //                // ディレクトリー名 (ディレクトリーパス) を取得
+        //                string directoryName = fileInfo.DirectoryName;
+        //                // 存在する場合は InitialDirectory プロパティに設定
+        //                if (Directory.Exists(directoryName))
+        //                {
+        //                    openFileDialog.InitialDirectory = directoryName;
+        //                }
+        //            }
 
-                    // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
-                    // ファイルのディレクトリー (フォルダー) を初期表示する
-                    if (fileName != string.Empty)
-                    {
-                        // FileInfo クラスのインスタンスを生成
-                        FileInfo fileInfo = new FileInfo(fileName);
-                        // ディレクトリー名 (ディレクトリーパス) を取得
-                        string directoryName = fileInfo.DirectoryName;
-                        // 存在する場合は InitialDirectory プロパティに設定
-                        if (Directory.Exists(directoryName))
-                        {
-                            openFileDialog.InitialDirectory = directoryName;
-                        }
-                    }
+        //            // ダイアログを表示
+        //            DialogResult dialogResult = openFileDialog.ShowDialog();
+        //            if (dialogResult == System.Windows.Forms.DialogResult.Cancel)
+        //            {
+        //                // キャンセルされたので終了
+        //                return;
+        //            }
 
-                    // ダイアログを表示
-                    DialogResult dialogResult = openFileDialog.ShowDialog();
-                    if (dialogResult == System.Windows.Forms.DialogResult.Cancel)
-                    {
-                        // キャンセルされたので終了
-                        return;
-                    }
-
-                    // 選択されたファイル名 (ファイルパス) をテキストボックスに設定
-                    defName.Text = openFileDialog.FileName;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            // 選択されたファイル名 (ファイルパス) をテキストボックスに設定
+        //            defName.Text = openFileDialog.FileName;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         /// <summary>
         /// Jp1AjsBook を作成するメソッド
         /// </summary>
         private void Button_Click_CreateJp1AjsBook(object sender, RoutedEventArgs e)
         {
-            string bookName = Jp1AjsBookName.Text;
-            string defName = tbJp1AjsDefFileName.Text;
+            //変数に
+            string book = tbJp1AjsBookName.Text;
+            string bookDir = Path.GetDirectoryName(book);
+            string def = tbJp1AjsDefFileName.Text;
 
-            // Jp1AjsBookのフォルダは問題ないか？
-            FileInfo fileInfo = new FileInfo(bookName);
-            if (!Directory.Exists(fileInfo.DirectoryName))
+            //生成するJp1AjsBookのフォルダは問題ないのか？
+            //FileInfo fileInfo = new FileInfo(bookName);
+            if (!Directory.Exists(bookDir))
             {
                 MessageBox.Show("生成するJp1AjsBookのフォルダ指定を見直して下さい。");
                 return;
             }
 
-            //Jp1Ajs定義ファイルは問題ないか？
-            if (string.IsNullOrWhiteSpace(defName) || !File.Exists(defName))
+            //Jp1Ajs定義ファイルは問題ないかのか？
+            if (string.IsNullOrWhiteSpace(def) || !File.Exists(def))
             {
                 MessageBox.Show("Jp1Ajs定義ファイルを見直して下さい。");
                 return;
             }
 
-            //カーソルをくるくるに変える
-            this.Cursor = System.Windows.Input.Cursors.Wait;
+            //カーソルを待ちに変える
+            Cursor = System.Windows.Input.Cursors.Wait;
 
             //テンプレートJp1AjsBookを生成
-            CreateNewTemplateBook.CreateBook(Jp1AjsBookName.Text);
+            _ = CreateNewTemplateBook.CreateBook(book);
 
             //Jp1Ajs定義をパースしてUnit定義を組み立てる
-            var ajsdef = BuildJp1AjsDef.StreamBuildJp1AjsDefUnits(defName);
+            KnToolsJp1Ajs.Jp1AjsDef.AjsDef ajsdef = BuildJp1AjsDef.StreamBuildJp1AjsDefUnits(def);
 
             //Jp1Ajs定義をJp1AjsBookのシートに配置
-            UpdateBook.UpdateExcelBook(bookName, ajsdef);
+            _ = UpdateBook.UpdateExcelBook(book, ajsdef);
 
-            // カーソルを戻す
-            this.Cursor = null;
+            //カーソルを戻す
+            Cursor = null;
         }
 
+        /// <summary>
+        /// ドラグオーバーされた時の処理
+        /// </summary>
+        private void EhDragOverDropApple(object sender, System.Windows.DragEventArgs args)
+        {
+            args.Effects = System.Windows.DragDropEffects.Copy;
+            args.Handled = true;
+        }
 
+        /// <summary>
+        /// ドラグアンドドロップされたJp1Ajs定義ファイルで、Jp1AjsBookを作成する
+        /// </summary>
+        private void EhDropDropApple(object sender, System.Windows.DragEventArgs args)
+        {
+            //ドロップされたJp1Ajs定義ファイルの配列
+            var fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
+            args.Handled = true;    // Mark the event as handled
+
+            //ドロップされたJp1Ajs定義ファイルで、同じディレクトリにJp1AjsBookを作成する
+            foreach (var file in fileNames)
+            {
+                //作成するJp1AjsBookファイル名を組み立て
+                var path = Path.GetDirectoryName(file);
+                var name = Path.GetFileNameWithoutExtension(file);
+                var book = path + @"\" + name + ".xlsx";
+
+                //カーソルを待ちに変える
+                Cursor = System.Windows.Input.Cursors.Wait;
+
+                //テンプレートJp1AjsBookを生成
+                CreateNewTemplateBook.CreateBook(book);
+
+                //Jp1Ajs定義をパースしてUnit定義を組み立てる
+                KnToolsJp1Ajs.Jp1AjsDef.AjsDef ajsdef = BuildJp1AjsDef.StreamBuildJp1AjsDefUnits(file);
+
+                //Jp1Ajs定義をJp1AjsBookのシートに配置
+                UpdateBook.UpdateExcelBook(book, ajsdef);
+
+                //カーソルを戻す
+                Cursor = null;
+            }
+        }
+
+        private void tbJp1AjsBookName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
 }
