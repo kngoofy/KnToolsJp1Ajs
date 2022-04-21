@@ -13,8 +13,6 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="AllowDrop" Value="True"/>
-        <!--<Setter Property="Width" Value="230" />-->
-        <!--<Setter Property="Opacity" Value="0.5" />-->
     </Style>
 
     <Style x:Key="WindowContentGrid" TargetType="{x:Type Grid}">
@@ -25,8 +23,6 @@
         <Setter Property="FontSize" Value="12pt" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="Margin" Value="4,2,4,2" />
-        <!--<Setter Property="Width" Value="160" />-->
-        <!--<Setter Property="Height" Value="14" />-->
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
@@ -40,7 +36,7 @@
         <Setter Property="Height" Value="44" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Right" />
-        <!--<Setter Property="IsTabStop" Value="False"/>-->
+        <Setter Property="IsTabStop" Value="True"/>
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="images\blueberries.jpg"/>
@@ -94,8 +90,5 @@
         <Setter Property="FontFamily" Value="Trebuchet MS" />
         <Setter Property="FontSize" Value="10pt" />
     </Style>
-
-
-
 
 </ResourceDictionary>

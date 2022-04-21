@@ -18,16 +18,12 @@ namespace KnToolsJp1AjsForms
     /// </summary>
     public partial class Form1 : Form
     {
-        // Default System一覧 ブックを作成するSystemをチェック
-        //Dictionary<string, bool> _dict = new Dictionary<string, bool>();
-
-        //コンストラクタ
+        /// <summary>
+        /// メイン
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
-            //checkBoxAzNavel.Checked = _dict["AzNavel"] = true;
-            //checkBoxfBase.Checked = _dict["fBase"] = true;
-            //checkBoxDerico.Checked = _dict["Derico"] = true;
         }
 
         //ピクチャをクリックするとOpenFileDialogを出して、AJS定義ファイルを指定後ブック作成
@@ -59,41 +55,8 @@ namespace KnToolsJp1AjsForms
 
         private  void Button1_Click(object sender, EventArgs e)
         {
-            //_dict["AzNavel"] = checkBoxAzNavel.Checked;
-            //_dict["fBase"] = checkBoxfBase.Checked;
-            //_dict["Derico"] = checkBoxDerico.Checked;
-
-            ///*
-            //if (_dict["AzNavel"]) ;
-            //if (_dict["fBase"]) ;
-            //if (_dict["Derico"]) ;
-            //*/
-
-            //// ここに実装
-
-            //var tasks = new Task<string>[] {
-            //      GetPageAsync(@"https://docs.microsoft.com/ja-jp/"),
-            //      GetPageAsync(@"https://docs.microsoft.com/ja-jp/documentation/"),
-            //   };
-            //var results = await Task.WhenAll(tasks);
-            //;
-            //// それぞれ先頭300文字を表示する
-            ///*
-            //textBox1.Text =
-            //   results[0].Substring(0, 300) +
-            //   Environment.NewLine + Environment.NewLine +
-            //   results[1].Substring(0, 300);
-            //*/
-            ;
+            
         }
-        //private readonly HttpClient _httpClient = new HttpClient();
-
-        //private async Task<string> GetPageAsync(string urlstr)
-        //{
-        //    var str = await _httpClient.GetStringAsync(urlstr);
-        //    return str;
-        //}
-
 
         //JP1AJSのAJSPRINT出力形式ファイルをドロップしたときのブック作成処理実行
         private void Form1_DragDrop(object sender, DragEventArgs e)

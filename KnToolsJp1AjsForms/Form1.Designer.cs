@@ -32,7 +32,6 @@ namespace KnToolsJp1AjsForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,32 +49,20 @@ namespace KnToolsJp1AjsForms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.Button1);
             this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox1.Location = new System.Drawing.Point(20, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(566, 200);
+            this.groupBox1.Size = new System.Drawing.Size(1031, 200);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "FromDcMon";
-            // 
-            // Button1
-            // 
-            this.Button1.Font = new System.Drawing.Font("MS UI Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Button1.Location = new System.Drawing.Point(298, 50);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(126, 55);
-            this.Button1.TabIndex = 5;
-            this.Button1.Text = "Create";
-            this.Button1.UseVisualStyleBackColor = true;
-            this.Button1.Click += new System.EventHandler(this.Button1_Click);
+            this.groupBox1.Text = "Pad";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(74, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(167, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 163);
+            this.pictureBox1.Size = new System.Drawing.Size(194, 163);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
@@ -85,7 +72,7 @@ namespace KnToolsJp1AjsForms
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 305);
+            this.ClientSize = new System.Drawing.Size(1080, 305);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -103,7 +90,6 @@ namespace KnToolsJp1AjsForms
         #endregion
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

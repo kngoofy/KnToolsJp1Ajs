@@ -23,10 +23,10 @@
         <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
             
             <Menu DockPanel.Dock="Left" FontSize="16" FontFamily="Meiryo UI">
-                <MenuItem Header="_File">
+                <MenuItem Header="_File" IsTabStop="False">
                     <MenuItem Header="_Exit" Click="FileExit_Click"/>
                 </MenuItem>
-                <MenuItem Header="Help" >
+                <MenuItem Header="Help" IsTabStop="False">
                     <MenuItem Header="About" Click="OnMenuAbout"/>
                 </MenuItem>
             </Menu>
@@ -39,13 +39,13 @@
 
             <DockPanel>
                 <TextBox x:Name="tbJp1AjsBookName" Text="Jp1AjsBook"
-                    TabIndex="1" 
+                    TabIndex="0" 
                     ToolTip="生成するJp1AjsBookファイルの指定 (Drag and Drop)"
                     PreviewDragOver="EhDragOverJp1AjsBookDef" PreviewDrop="EhDropJp1AjsBookDef" 
                     Style="{StaticResource TextBox1}"
                 />
                 <Button Content="Jp1AjsBookの指定"
-                    TabIndex="2"
+                    TabIndex="0"
                     Click="Button_Click_SelectJp1AjsBook"
                     Style="{StaticResource Button}"
                 />
@@ -59,13 +59,13 @@
             
             <DockPanel>
                 <TextBox Name="tbJp1AjsDefFileName" Text="Jp1Ajs"
-                    TabIndex="3"
+                    TabIndex="0"
                     ToolTip="AJS定義ファイルの指定 (Drag and Drop)"
                     PreviewDragOver="EhDragOverJp1AjsDef" PreviewDrop="EhDropJp1AjsDef" 
                     Style="{StaticResource TextBox1}"
                 />
                 <Button Content="AJS定義ファイル"
-                    TabIndex="4"
+                    TabIndex="0"
                     Click="Button_Click_Jp1Ajs"
                     Style="{StaticResource Button}"
                 />
@@ -73,10 +73,11 @@
 
         </GroupBox>
 
-        <Button Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Margin="0,0,0,0" 
+        <Button Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Margin="0,10,0,0" 
+            TabIndex="0"
             Content="Jp1AjsBook作成" 
-            Height="64" Width="130"
-            HorizontalAlignment="Center" VerticalAlignment="Bottom"
+            Height="54" Width="130"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
             Style="{StaticResource Button}"
             Click="Button_Click_CreateJp1AjsBook" Grid.ColumnSpan="2" 
          />

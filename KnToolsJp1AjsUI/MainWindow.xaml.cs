@@ -64,11 +64,6 @@ namespace KnToolsJp1AjsUI
 
             //指定された場合テキストボックスにセット
             if (!string.IsNullOrWhiteSpace(file)) tbJp1AjsBookName.Text = file;
-
-            //(string src, string des) = (tbJp1AjsBookName.Text, "");
-            //des= MyOpenFileDialog(src, ".xlsx", "Jp1AjsBook(.xlsx)|*.xlsx", false);
-            //if (!string.IsNullOrWhiteSpace(des)) (src,des) = (des,src);
-
         }
 
         /// <summary>
@@ -86,7 +81,6 @@ namespace KnToolsJp1AjsUI
             if (!string.IsNullOrWhiteSpace(file)) tbJp1AjsDefFileName.Text = file;
 
         }
-
 
         /// <summary>
         /// ExcelBook ファイルをopenFileDialogにて設定するメソッド
@@ -193,62 +187,6 @@ namespace KnToolsJp1AjsUI
             tbJp1AjsDefFileName.Text = fileNames[0];
         }
 
-
-        
-        ///// <summary>
-        ///// Jp1Ajs定義ファイルを指定するダイアログを表示するメソッド
-        ///// </summary>
-        ///// <param name="defName">WfpのTextBoxのコントロール</param>
-        //private void OpenDocumentDef(System.Windows.Controls.TextBox defName)
-        //{
-        //    try
-        //    {
-        //        // 
-        //        string fileName = defName.Text;
-
-        //        // OpenFileDialog クラスのインスタンスを生成
-        //        using (OpenFileDialog openFileDialog = new OpenFileDialog())
-        //        {
-        //            openFileDialog.FileName = System.IO.Path.GetFileName(fileName);
-        //            openFileDialog.DefaultExt = ".def";
-        //            openFileDialog.CheckFileExists = true;     //存在しなくてはいけない
-
-        //            // ファイルの種類リストを設定
-        //            openFileDialog.Filter = "HultDefine(.def,*.txt)|*.def;*.txt|すべてのファイル(*.*)|*.*";
-
-        //            // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
-        //            // ファイルのディレクトリー (フォルダー) を初期表示する
-        //            if (fileName != string.Empty)
-        //            {
-        //                // FileInfo クラスのインスタンスを生成
-        //                FileInfo fileInfo = new FileInfo(fileName);
-        //                // ディレクトリー名 (ディレクトリーパス) を取得
-        //                string directoryName = fileInfo.DirectoryName;
-        //                // 存在する場合は InitialDirectory プロパティに設定
-        //                if (Directory.Exists(directoryName))
-        //                {
-        //                    openFileDialog.InitialDirectory = directoryName;
-        //                }
-        //            }
-
-        //            // ダイアログを表示
-        //            DialogResult dialogResult = openFileDialog.ShowDialog();
-        //            if (dialogResult == System.Windows.Forms.DialogResult.Cancel)
-        //            {
-        //                // キャンセルされたので終了
-        //                return;
-        //            }
-
-        //            // 選択されたファイル名 (ファイルパス) をテキストボックスに設定
-        //            defName.Text = openFileDialog.FileName;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
         /// <summary>
         /// Jp1AjsBook を作成するメソッド
         /// </summary>
@@ -333,10 +271,6 @@ namespace KnToolsJp1AjsUI
             }
         }
 
-        private void tbJp1AjsBookName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 
 }
