@@ -67,7 +67,7 @@ namespace KnToolsJp1AjsUI
         }
 
         /// <summary>
-        /// Jp1Ajs定義ファイル(Snd)を指定するダイアログを呼び出すメソッド
+        /// Jp1Ajs定義ファイルを指定するダイアログを呼び出すメソッド
         /// </summary>
         private void Button_Click_Jp1Ajs(object sender, RoutedEventArgs e)
         {
