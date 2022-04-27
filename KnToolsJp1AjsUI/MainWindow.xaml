@@ -1,48 +1,89 @@
-﻿<Window x:Class="KnToolsJp1AjsUI.MainWindow"
+﻿<mah:MetroWindow x:Class="KnToolsJp1AjsUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"              
         xmlns:local="clr-namespace:KnToolsJp1AjsUI"
         mc:Ignorable="d"
-        Icon="images\butterfly2_small.jpg"
-        Title="MainWindow" Height="300.333" Width="1020">
+        Icon="images\application_msn_windows_2431.ico"
+        Title="MainWindow" Height="600" Width="880">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="26"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="11"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="330"/>
+            <RowDefinition Height="131"/>
+            <RowDefinition Height="216"/>
+            <RowDefinition Height="216"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="860"/>
             <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
 
-        <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
-            
+        <!--<DockPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0.333,0">
+
             <Menu DockPanel.Dock="Left" FontSize="16" FontFamily="Meiryo UI">
-                <MenuItem Header="_File" IsTabStop="False">
+                <MenuItem Header="_File" IsTabStop="False" Click="MenuItem_Click">
                     <MenuItem Header="_Exit" Click="FileExit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Help" IsTabStop="False">
                     <MenuItem Header="About" Click="OnMenuAbout"/>
                 </MenuItem>
             </Menu>
-            
-        </DockPanel>
 
-        <GroupBox  Grid.Row="1"
+        </DockPanel>-->
+
+        <ProgressBar Grid.Row="1"
+  IsIndeterminate="True" Height="Auto" Margin="0,3.667" />
+
+
+        <Menu Grid.Row="0" Margin="0,0,0,0.333">
+            <MenuItem Header="_File">
+                <MenuItem
+                    Header="Exit" InputGestureText="Ctrl+E"
+                    Click="FileExit_Click"
+                    Icon="{materialDesign:PackIcon Kind=ExitToApp}" 
+                    />
+            </MenuItem>
+            <MenuItem Header="Help" IsTabStop="False">
+                <MenuItem 
+                    Header="About" InputGestureText="Ctrl+A"
+                    Click="OnMenuAbout"
+                    Icon="{materialDesign:PackIcon Kind=Help}" 
+                    />
+            </MenuItem>
+        </Menu>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <GroupBox  Grid.Row="7"
             Header="作成するJp1AjsBookファイルの指定"
-            Style="{StaticResource GroupBox}">
+            Style="{StaticResource GroupBox}" Margin="4,72.333,0,63.667" Height="80" Width="855">
 
             <DockPanel>
-                <TextBox x:Name="tbJp1AjsBookName" Text="Jp1AjsBook"
+                <TextBox x:Name="tbJp1AjsBookName_moto" Text="Jp1AjsBook"
                     TabIndex="0" 
                     ToolTip="生成するJp1AjsBookファイルの指定 (Drag and Drop)"
                     PreviewDragOver="EhDragOverJp1AjsBookDef" PreviewDrop="EhDropJp1AjsBookDef" 
-                    Style="{StaticResource TextBox1}"
+                    
                 />
                 <Button Content="Jp1AjsBookの指定"
                     TabIndex="0"
@@ -53,16 +94,16 @@
 
         </GroupBox>
 
-        <GroupBox Grid.Row="2" 
+        <GroupBox Grid.Row="8" 
             Header="ファイルからJp1AjsBook作成"
-            Style="{StaticResource GroupBox}">
-            
+            Style="{StaticResource GroupBox}" Margin="4,72.333,0,63.667" Height="80" Width="855">
+
             <DockPanel>
-                <TextBox Name="tbJp1AjsDefFileName" Text="Jp1Ajs"
+                <TextBox Name="tbJp1AjsDefFileName_moto" Text="Jp1Ajs"
                     TabIndex="0"
                     ToolTip="AJS定義ファイルの指定 (Drag and Drop)"
                     PreviewDragOver="EhDragOverJp1AjsDef" PreviewDrop="EhDropJp1AjsDef" 
-                    Style="{StaticResource TextBox1}"
+                    
                 />
                 <Button Content="AJS定義ファイル"
                     TabIndex="0"
@@ -73,25 +114,158 @@
 
         </GroupBox>
 
-        <Button Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Margin="0,10,0,0" 
+
+
+        <GroupBox Grid.Row="2" Margin="8" 
+                Header="作成するJp1AjsBookファイルの指定"
+                  Style="{StaticResource MaterialDesignCardGroupBox}" 
+               >
+
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Kind="FileExcel"
+                            Height="32"
+                            Width="32"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                            Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Column="0">
+                    <Label>Jp1AjsBookファイル</Label>
+                    <TextBox Name="tbJp1AjsBookName" Text="folder"
+                        TabIndex="0" 
+                        Margin="6,0,0,0"
+                        FontFamily="Meiryo UI"
+                        FontSize="14"
+                        ToolTip="生成するJp1AjsBookファイルの指定 (Drag and Drop)"
+                        PreviewDragOver="EhDragOverJp1AjsBookDef" PreviewDrop="EhDropJp1AjsBookDef"  
+                    />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Grid.Column="1" VerticalAlignment="Center">
+                    <Button
+                        Click="Button_Click_SelectJp1AjsBook"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            ToolTip="MaterialDesignFloatingActionMiniButton"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                        <materialDesign:PackIcon
+                                Kind="File"
+                                 />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+
+
+
+
+
+        <GroupBox Grid.Row="3" 
+                  Margin="8"
+                Header="元となるJP1定義ファイルの指定"
+                  Style="{StaticResource MaterialDesignCardGroupBox}"
+                >
+
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Kind="FileDocumentOutline"
+                            Height="32"
+                            Width="32"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                            Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Column="0">
+                    <Label>AJS定義ファイル</Label>
+                    <TextBox Name="tbJp1AjsDefFileName" Text="def"
+                    TabIndex="0"
+                    Margin="6,0,0,0"
+                    FontFamily="Meiryo UI"
+                    FontSize="14"
+                    ToolTip="AJS定義ファイルの指定 (Drag and Drop)"
+                    PreviewDragOver="EhDragOverJp1AjsDef" PreviewDrop="EhDropJp1AjsDef" 
+                />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Grid.Column="1" VerticalAlignment="Center">
+                    <Button
+                        Click="Button_Click_Jp1Ajs"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            ToolTip="MaterialDesignFloatingActionMiniButton"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                        <materialDesign:PackIcon
+                                Kind="File"
+                                 />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+
+
+
+        <Button Grid.Row="8" Grid.Column="1" 
             TabIndex="0"
             Content="Jp1AjsBook作成" 
             Height="54" Width="130"
             HorizontalAlignment="Center" VerticalAlignment="Center"
             Style="{StaticResource Button}"
-            Click="Button_Click_CreateJp1AjsBook" Grid.ColumnSpan="2" 
+            Click="Button_Click_CreateJp1AjsBook" 
          />
-        <Image Grid.Row="2" Grid.Column="1"
-               Margin="0,12,0,1"
+        <Image Grid.Row="5" Grid.Column="0"
+               Margin="12"
                ToolTip="複数のAJS定義ファイルをDrag and DropするとJp1AjsBookを作成する。"
                Source="apple.jpg"
                PreviewDragOver="EhDragOverDropApple" PreviewDrop="EhDropDropApple" 
                Style="{StaticResource DropApple}"
-               AllowDrop="True" VerticalAlignment="Bottom" 
+               AllowDrop="True" VerticalAlignment="Top" Height="90"  HorizontalAlignment="Center" 
                >
-            
+
         </Image>
+
+
+
+        <Button Grid.Row="4"
+                    Click="Button_Click_CreateJp1AjsBook"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Jp1Ajs作成の実行"
+                    Content="Jp1Ajs作成の実行"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                    Margin="4" Height="51" Width="801"  />
+
+
 
     </Grid>
 
-</Window>
+</mah:MetroWindow>

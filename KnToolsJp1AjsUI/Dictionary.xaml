@@ -44,8 +44,8 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TextBox}" >
-        <Setter Property="Height" Value="30" />
+    <!--<Style x:Key="TextBoxBase" TargetType="{x:Type TextBox}" >
+        --><!--<Setter Property="Height" Value="30" />
         <Setter Property="BorderBrush" Value="Black" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsTabStop" Value="True"/>
@@ -56,32 +56,44 @@
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="HorizontalAlignment" Value="Left" />--><!--
     </Style>
 
-    <Style x:Key="TextBox1" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Style x:Key="TextBox1" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}">
         <Setter Property="Width" Value="680" />
     </Style>
 
-    <Style x:Key="TextBox2" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Style x:Key="TextBox2" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}">
         <Setter Property="Width" Value="600" />
-    </Style>
+    </Style>-->
 
-    <Style TargetType="{x:Type Label}">
-        <Setter Property="Margin" Value="1,2,0,0" />
+    <!--<Style x:Key="TextBox" TargetType="{x:Type TextBox}" >
+        <Setter Property="Margin" Value="1" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Meiryo UI" />
+        <Setter Property="FontSize" Value="16pt" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>-->
+    
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Meiryo UI" />
+        <Setter Property="FontSize" Value="10pt" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
+    
     <Style x:Key="Label1" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="70" />
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Foreground" Value="DarkSlateBlue" />
-        <Setter Property="FontSize" Value="10pt" />
         <Setter Property="FontFamily" Value="Trebuchet MS" />
     </Style>
-
+    
+    <!--
+    
     <Style x:Key="Label2" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="140" />
@@ -89,6 +101,6 @@
         <Setter Property="Foreground" Value="#0066CC" />
         <Setter Property="FontFamily" Value="Trebuchet MS" />
         <Setter Property="FontSize" Value="10pt" />
-    </Style>
+    </Style>-->
 
 </ResourceDictionary>

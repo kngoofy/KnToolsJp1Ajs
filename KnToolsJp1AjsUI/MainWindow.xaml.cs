@@ -18,12 +18,14 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using KnToolsJp1Ajs;
 using Path = System.IO.Path;
 
+using MahApps.Metro.Controls;
+
 namespace KnToolsJp1AjsUI
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         /// <summary>
         /// メイン
