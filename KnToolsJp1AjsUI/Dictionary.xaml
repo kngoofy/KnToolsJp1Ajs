@@ -19,15 +19,15 @@
         <Setter Property="Margin" Value="5" />
     </Style>
 
-    <Style x:Key="GroupBox" TargetType="{x:Type GroupBox}">
+    <!--<Style x:Key="GroupBox" TargetType="{x:Type GroupBox}">
         <Setter Property="FontSize" Value="12pt" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="Margin" Value="4,2,4,2" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-    </Style>
+    </Style>-->
 
-    <Style x:Key="Button" TargetType="{x:Type Button}">
+    <!--<Style x:Key="Button" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="12pt" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
         <Setter Property="Foreground" Value="White" />
@@ -42,7 +42,7 @@
                 <ImageBrush ImageSource="images\blueberries.jpg"/>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <!--<Style x:Key="TextBoxBase" TargetType="{x:Type TextBox}" >
         --><!--<Setter Property="Height" Value="30" />
@@ -75,22 +75,22 @@
         <Setter Property="FontWeight" Value="Bold" />
     </Style>-->
     
-    <Style TargetType="{x:Type Label}">
+    <!--<Style TargetType="{x:Type Label}">
         <Setter Property="Margin" Value="1" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
-        <!--<Setter Property="FontSize" Value="10pt" />-->
-        <!--<Setter Property="FontWeight" Value="Bold" />-->
-    </Style>
+        --><!--<Setter Property="FontSize" Value="10pt" />-->
+        <!--<Setter Property="FontWeight" Value="Bold" />--><!--
+    </Style>-->
 
     
-    <Style x:Key="Label1" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
+    <!--<Style x:Key="Label1" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="70" />
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Foreground" Value="DarkSlateBlue" />
         <Setter Property="FontFamily" Value="Trebuchet MS" />
-    </Style>
+    </Style>-->
     
     <!--
     

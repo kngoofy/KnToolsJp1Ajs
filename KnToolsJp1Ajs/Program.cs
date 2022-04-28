@@ -22,7 +22,7 @@ namespace KnToolsJp1Ajs
             var options = new string[] { "-ajs", "-o", "-h" };
             var target = options.ToDictionary(p => p.Substring(1), p => args.SkipWhile(a => a != p).Skip(1).FirstOrDefault());
 
-            //オプションで生成HulftBook名指定している場合と指定していない場合
+            //オプションで生成Jp1AjsBook名指定している場合と指定していない場合
             var OutPutBookName = "NewJp1AjsBook.xlsx";
             if (target["o"] != null)
             {

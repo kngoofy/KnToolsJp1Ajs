@@ -19,6 +19,7 @@ using KnToolsJp1Ajs;
 using Path = System.IO.Path;
 
 using MahApps.Metro.Controls;
+using MaterialDesignThemes.Wpf;
 
 namespace KnToolsJp1AjsUI
 {
@@ -90,19 +91,20 @@ namespace KnToolsJp1AjsUI
         private string MyOpenFileDialog(string fileName, string defaultExt, string filter, bool checkFileExists)
         {
             // OpenFileDialog クラスのインスタンスを生成
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                //Default ファイル名
+                FileName = fileName,
 
-            //Default ファイル名
-            openFileDialog.FileName = fileName;
+                //Default ファイルの種類
+                DefaultExt = defaultExt,
 
-            //Default ファイルの種類
-            openFileDialog.DefaultExt = defaultExt;
+                //ファイルの種類リストを設定
+                Filter = filter,
 
-            //ファイルの種類リストを設定
-            openFileDialog.Filter = filter;
-
-            //存在しないといけないか？を指定
-            openFileDialog.CheckFileExists = checkFileExists;
+                //存在しないといけないか？を指定
+                CheckFileExists = checkFileExists
+            };
 
             // テキストボックスにファイル名 (ファイルパス) が設定されている場合は
             // ファイルのディレクトリー (フォルダー) を初期表示する
@@ -192,14 +194,15 @@ namespace KnToolsJp1AjsUI
         /// <summary>
         /// Jp1AjsBook を作成するメソッド
         /// </summary>
-        private void Button_Click_CreateJp1AjsBook(object sender, RoutedEventArgs e)
+        private async void Button_Click_CreateJp1AjsBook(object sender, RoutedEventArgs e)
         {
             //変数に
             string book = tbJp1AjsBookName.Text;
 
             if (string.IsNullOrWhiteSpace(book))
             {
-                MessageBox.Show("生成するJp1AjsBookのフォルダを指定して下さい。");
+                //MessageBox.Show("生成するJp1AjsBookを指定して下さい。");
+                await DialogHost.Show(new MyMsgBox("生成するJp1AjsBookを指定して下さい。"));
                 return;
             }
 
@@ -210,14 +213,16 @@ namespace KnToolsJp1AjsUI
             //FileInfo fileInfo = new FileInfo(bookName);
             if (!Directory.Exists(bookDir))
             {
-                MessageBox.Show("生成するJp1AjsBookのフォルダ指定を見直して下さい。");
+                //MessageBox.Show("指定したJp1AjsBookのフォルダを見直して下さい。");
+                await DialogHost.Show(new MyMsgBox("指定したJp1AjsBookのフォルダを見直して下さい。"));
                 return;
             }
 
             //Jp1Ajs定義ファイルは問題ないかのか？
             if (string.IsNullOrWhiteSpace(def) || !File.Exists(def))
             {
-                MessageBox.Show("Jp1Ajs定義ファイルを見直して下さい。");
+                //MessageBox.Show("指定した元となるJp1Ajs定義ファイルを見直して下さい。");
+                await DialogHost.Show(new MyMsgBox("指定した元となるJp1Ajs定義ファイルを見直して下さい。"));
                 return;
             }
 
