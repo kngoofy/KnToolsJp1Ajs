@@ -196,6 +196,13 @@ namespace KnToolsJp1AjsUI
         {
             //変数に
             string book = tbJp1AjsBookName.Text;
+
+            if (string.IsNullOrWhiteSpace(book))
+            {
+                MessageBox.Show("生成するJp1AjsBookのフォルダを指定して下さい。");
+                return;
+            }
+
             string bookDir = Path.GetDirectoryName(book);
             string def = tbJp1AjsDefFileName.Text;
 
@@ -248,6 +255,9 @@ namespace KnToolsJp1AjsUI
             var fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
             args.Handled = true;    // Mark the event as handled
 
+            //カーソルを待ちに変える
+            Cursor = System.Windows.Input.Cursors.Wait;
+
             //ドロップされたJp1Ajs定義ファイルで、同じディレクトリにJp1AjsBookを作成する
             foreach (var file in fileNames)
             {
@@ -255,9 +265,6 @@ namespace KnToolsJp1AjsUI
                 var path = Path.GetDirectoryName(file);
                 var name = Path.GetFileNameWithoutExtension(file);
                 var book = path + @"\" + name + ".xlsx";
-
-                //カーソルを待ちに変える
-                Cursor = System.Windows.Input.Cursors.Wait;
 
                 //テンプレートJp1AjsBookを生成
                 CreateNewTemplateBook.CreateBook(book);
@@ -268,9 +275,9 @@ namespace KnToolsJp1AjsUI
                 //Jp1Ajs定義をJp1AjsBookのシートに配置
                 UpdateBook.UpdateExcelBook(book, ajsdef);
 
-                //カーソルを戻す
-                Cursor = null;
             }
+            //カーソルを戻す
+            Cursor = null;
         }
 
     }

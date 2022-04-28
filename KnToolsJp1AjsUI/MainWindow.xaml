@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:KnToolsJp1AjsUI"
         mc:Ignorable="d"
         Icon="images\application_msn_windows_2431.ico"
-        Title="MainWindow" Height="600" Width="880">
+        Title="MainWindow" Height="560" Width="880">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,9 +16,8 @@
             <RowDefinition Height="11"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="330"/>
-            <RowDefinition Height="131"/>
+            <RowDefinition Height="63.333"/>
+            <RowDefinition Height="496.666666666667"/>
             <RowDefinition Height="216"/>
             <RowDefinition Height="216"/>
         </Grid.RowDefinitions>
@@ -41,10 +40,10 @@
         </DockPanel>-->
 
         <ProgressBar Grid.Row="1"
-  IsIndeterminate="True" Height="Auto" Margin="0,3.667" />
+  IsIndeterminate="True" Height="Auto" Margin="0,3.333,0.333,4" />
 
 
-        <Menu Grid.Row="0" Margin="0,0,0,0.333">
+        <Menu Grid.Row="0" Margin="0,0,0.333,0.667">
             <MenuItem Header="_File">
                 <MenuItem
                     Header="Exit" InputGestureText="Ctrl+E"
@@ -74,9 +73,9 @@
 
 
 
-        <GroupBox  Grid.Row="7"
+        <GroupBox  Grid.Row="6"
             Header="作成するJp1AjsBookファイルの指定"
-            Style="{StaticResource GroupBox}" Margin="4,72.333,0,63.667" Height="80" Width="855">
+            Style="{StaticResource GroupBox}" Margin="4,72,0,64" Height="80" Width="855">
 
             <DockPanel>
                 <TextBox x:Name="tbJp1AjsBookName_moto" Text="Jp1AjsBook"
@@ -94,9 +93,9 @@
 
         </GroupBox>
 
-        <GroupBox Grid.Row="8" 
+        <GroupBox Grid.Row="7" 
             Header="ファイルからJp1AjsBook作成"
-            Style="{StaticResource GroupBox}" Margin="4,72.333,0,63.667" Height="80" Width="855">
+            Style="{StaticResource GroupBox}" Margin="4,72,0,64" Height="80" Width="855">
 
             <DockPanel>
                 <TextBox Name="tbJp1AjsDefFileName_moto" Text="Jp1Ajs"
@@ -116,7 +115,7 @@
 
 
 
-        <GroupBox Grid.Row="2" Margin="8" 
+        <GroupBox Grid.Row="2" Margin="8,8,8.333,8" 
                 Header="作成するJp1AjsBookファイルの指定"
                   Style="{StaticResource MaterialDesignCardGroupBox}" 
                >
@@ -177,7 +176,7 @@
 
 
         <GroupBox Grid.Row="3" 
-                  Margin="8"
+                  Margin="8,8,8.333,8"
                 Header="元となるJP1定義ファイルの指定"
                   Style="{StaticResource MaterialDesignCardGroupBox}"
                 >
@@ -209,7 +208,7 @@
 
                 <StackPanel Grid.Column="0">
                     <Label>AJS定義ファイル</Label>
-                    <TextBox Name="tbJp1AjsDefFileName" Text="def"
+                    <TextBox Name="tbJp1AjsDefFileName" Text=""
                     TabIndex="0"
                     Margin="6,0,0,0"
                     FontFamily="Meiryo UI"
@@ -235,36 +234,41 @@
 
 
 
-        <Button Grid.Row="8" Grid.Column="1" 
+        <Button Grid.Row="7" 
             TabIndex="0"
             Content="Jp1AjsBook作成" 
             Height="54" Width="130"
             HorizontalAlignment="Center" VerticalAlignment="Center"
             Style="{StaticResource Button}"
-            Click="Button_Click_CreateJp1AjsBook" 
+            Click="Button_Click_CreateJp1AjsBook" Margin="370,80,373.333,82" 
          />
-        <Image Grid.Row="5" Grid.Column="0"
-               Margin="12"
-               ToolTip="複数のAJS定義ファイルをDrag and DropするとJp1AjsBookを作成する。"
-               Source="apple.jpg"
-               PreviewDragOver="EhDragOverDropApple" PreviewDrop="EhDropDropApple" 
-               Style="{StaticResource DropApple}"
-               AllowDrop="True" VerticalAlignment="Top" Height="90"  HorizontalAlignment="Center" 
-               >
-
-        </Image>
-
-
 
         <Button Grid.Row="4"
                     Click="Button_Click_CreateJp1AjsBook"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    ToolTip="Jp1Ajs作成の実行"
-                    Content="Jp1Ajs作成の実行"
+                    ToolTip="Jp1AjsBook作成の実行"
+                    Content="Jp1AjsBooを作成する"
+                    FontSize="20"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
-                    Margin="4" Height="51" Width="801"  />
+                    Margin="30,10,30.333,12.333" Height="41" Width="Auto" VerticalAlignment="Center"  />
 
-
+        <Image Grid.Row="5" Grid.Column="0"
+               Margin="394,8.667,393.333,402"
+               ToolTip="複数のAJS定義ファイルをDrag and DropするとJp1AjsBookを作成する。"
+               Source="images/Microsoft_Excel_27029.png"
+               PreviewDragOver="EhDragOverDropApple" PreviewDrop="EhDropDropApple" 
+               Style="{StaticResource DropApple}"
+               AllowDrop="True" Height="86" Width="86" 
+               >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.317"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
     </Grid>
 

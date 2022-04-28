@@ -9,8 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Icon="images\application_msn_windows_2431.ico"
-        Title="About" Height="230" Width="440">
-
+        Title="About" Height="240" Width="460">
 
     <Grid>
         <Image Style="{StaticResource WatermarkImage}"/>
@@ -18,49 +17,49 @@
         <DockPanel>
 
             <Grid >
-
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="248*" />
-                    <ColumnDefinition Width="187*" />
+                    <ColumnDefinition Width="274*" />
+                    <ColumnDefinition Width="180*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="32*" />
-                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="40*" />
+                    <RowDefinition Height="40*" />
                     <RowDefinition Height="100*" />
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="Category:" Margin="1" HorizontalAlignment="Right"          />
-                <!--<Label Grid.Row="0" Grid.Column="1" Content="Jp1AjsBook 作成" Margin="45,8,44.667,7.333" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Height="24" Width="97"/>-->
-
+                <Label Grid.Row="1" Grid.Column="0" Content="Category:" Margin="0,8,1,8.667" HorizontalAlignment="Right" FontSize="11" Height="24" Width="63"/>
                 <materialDesign:Chip 
-                    Grid.Row="0" Grid.Column="1"
-                    Content="Jp1AjsBook作成"
+                    Grid.Row="1" Grid.Column="1"
+                    Content="Jp1AjsBook 作成"
                     Style="{StaticResource MaterialDesignOutlineChip}" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,3.667,0,3.667" Width="173" FontWeight="Bold">
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Margin="6" 
+                    Width="160" 
+                    FontFamily="Meiryo UI" FontWeight="Bold" FontSize="10">
                     <materialDesign:Chip.Icon>
                         <Image Source="images/application_office_excel_2474.ico" />
                     </materialDesign:Chip.Icon>
                 </materialDesign:Chip>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Author:" Margin="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                <!--<Label Grid.Row="1" Grid.Column="1" Content="kngoofy@gmail.com"   />-->
-
+                <Label Grid.Row="2" Grid.Column="0" Content="Author:" Margin="0,8.333,1,9" HorizontalAlignment="Right" FontSize="11" Height="24" Width="51"/>
                 <materialDesign:Chip 
-                    Grid.Row="1" Grid.Column="1"
+                    Grid.Row="2" Grid.Column="1"
                     Content="kngoofy@gmail.com"
                     Style="{StaticResource MaterialDesignOutlineChip}" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,3.667,0,3.667" Width="173" FontWeight="Bold">
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Margin="6" 
+                    Width="160" 
+                    FontFamily="Meiryo UI" FontWeight="Bold" FontSize="10">
                     <materialDesign:Chip.Icon>
                         <Image Source="images/butterfly2_small.jpg" />
                     </materialDesign:Chip.Icon>
                 </materialDesign:Chip>
 
-
-
-                <Button Grid.Row="2" Grid.Column="1" 
-                        Content="OK" Click="Button_Click" 
-                        Margin="53,14.333,60.667,20" 
-                        HorizontalAlignment="Center" VerticalAlignment="Center" Height="89" Width="73" >
+                <Button Grid.Row="3" Grid.Column="1" 
+                        Content="ok" Click="Button_Click" 
+                        Margin="5" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="80" >
                     <Button.Background>
                         <ImageBrush ImageSource="images\IMG_0009.PNG"/>
                     </Button.Background>
@@ -71,4 +70,5 @@
         </DockPanel>
 
     </Grid>
+
 </mah:MetroWindow>

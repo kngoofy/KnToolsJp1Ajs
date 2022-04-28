@@ -79,8 +79,8 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="Meiryo UI" />
-        <Setter Property="FontSize" Value="10pt" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <!--<Setter Property="FontSize" Value="10pt" />-->
+        <!--<Setter Property="FontWeight" Value="Bold" />-->
     </Style>
 
     
