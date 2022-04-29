@@ -93,6 +93,10 @@
     <Content Include="Data\jp1def-test03.def" />
     <Content Include="Data\jp1def-test02.def" />
     <Content Include="Data\jp1def-test01.def" />
+    <Content Include="TestData\Ajs.def" />
+    <Content Include="TestData\jp1def-test01.def" />
+    <Content Include="TestData\jp1def-test02.def" />
+    <Content Include="TestData\jp1def-test03.def" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -202,6 +202,8 @@ namespace KnToolsJp1AjsUI
             if (string.IsNullOrWhiteSpace(book))
             {
                 //MessageBox.Show("生成するJp1AjsBookを指定して下さい。");
+                tbJp1AjsBookName.Focusable = true;
+                _ = tbJp1AjsBookName.Focus();
                 await DialogHost.Show(new MyMsgBox("生成するJp1AjsBookを指定して下さい。"));
                 return;
             }
@@ -214,6 +216,8 @@ namespace KnToolsJp1AjsUI
             if (!Directory.Exists(bookDir))
             {
                 //MessageBox.Show("指定したJp1AjsBookのフォルダを見直して下さい。");
+                tbJp1AjsBookName.Focusable = true;
+                _ = tbJp1AjsBookName.Focus();
                 await DialogHost.Show(new MyMsgBox("指定したJp1AjsBookのフォルダを見直して下さい。"));
                 return;
             }
@@ -222,6 +226,8 @@ namespace KnToolsJp1AjsUI
             if (string.IsNullOrWhiteSpace(def) || !File.Exists(def))
             {
                 //MessageBox.Show("指定した元となるJp1Ajs定義ファイルを見直して下さい。");
+                tbJp1AjsDefFileName.Focusable = true;
+                _ = tbJp1AjsDefFileName.Focus();
                 await DialogHost.Show(new MyMsgBox("指定した元となるJp1Ajs定義ファイルを見直して下さい。"));
                 return;
             }

@@ -13,10 +13,10 @@ namespace KnToolsJp1Ajs
         /// </summary>
         /// <param name="wb">Book</param>
         /// <returns></returns>
-        public static Dictionary<String, ICellStyle> CreateBookStyles(IWorkbook wb)
+        public static Dictionary<string, ICellStyle> CreateBookStyles(IWorkbook wb)
         {
             //作成したセルのスタイルをディクショナリで返すコレクションを作成
-            var styles = new Dictionary<String, ICellStyle>();
+            var styles = new Dictionary<string, ICellStyle>();
 
             //fontとstyle
             IFont font;         // = wb.CreateFont();
@@ -25,26 +25,26 @@ namespace KnToolsJp1Ajs
             // (a)スタイルエイリアス[topleft]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)10);
+            font.FontHeightInPoints = (short)10;
             font.IsBold = true;
-            font.Color = (IndexedColors.White.Index);
+            font.Color = IndexedColors.White.Index;
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
-            style.Alignment = (HorizontalAlignment.Left);
+            style.Alignment = HorizontalAlignment.Left;
             style.VerticalAlignment = VerticalAlignment.Center;
-            style.FillForegroundColor = (IndexedColors.DarkBlue.Index);
-            style.FillPattern = (FillPattern.SolidForeground);
+            style.FillForegroundColor = IndexedColors.DarkBlue.Index;
+            style.FillPattern = FillPattern.SolidForeground;
             styles.Add("topleft", style);
 
             // (b)スタイルエイリアス[indexBoxNo]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)10);
+            font.FontHeightInPoints = (short)10;
             font.IsBold = true;
-            font.Color = (IndexedColors.DarkBlue.Index);
+            font.Color = IndexedColors.DarkBlue.Index;
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
-            style.Alignment = (HorizontalAlignment.Center);
+            style.Alignment = HorizontalAlignment.Center;
             style.VerticalAlignment = VerticalAlignment.Center;
             //style.FillForegroundColor = (IndexedColors.Blue.Index);
             //style.FillPattern = (FillPattern.SolidForeground);
@@ -53,26 +53,26 @@ namespace KnToolsJp1Ajs
             // (c)スタイルエイリアス[indexBoxTitle]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)9);
+            font.FontHeightInPoints = (short)9;
             font.IsBold = false;
-            font.Color = (IndexedColors.White.Index);
+            font.Color = IndexedColors.White.Index;
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
-            style.Alignment = (HorizontalAlignment.Center);
+            style.Alignment = HorizontalAlignment.Center;
             style.VerticalAlignment = VerticalAlignment.Center;
-            style.FillForegroundColor = (IndexedColors.DarkBlue.Index);
-            style.FillPattern = (FillPattern.SolidForeground);
+            style.FillForegroundColor = IndexedColors.DarkBlue.Index;
+            style.FillPattern = FillPattern.SolidForeground;
             styles.Add("indexBoxTitle", style);
 
             // (d)スタイルエイリアス[BlankCell]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)9);
+            font.FontHeightInPoints = (short)9;
             font.IsBold = false;
-            font.Color = (IndexedColors.White.Index);
+            font.Color = IndexedColors.White.Index;
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
-            style.Alignment = (HorizontalAlignment.Center);
+            style.Alignment = HorizontalAlignment.Center;
             style.VerticalAlignment = VerticalAlignment.Center;
             //style.FillForegroundColor = (IndexedColors.DarkBlue.Index);
             //style.FillPattern = (FillPattern.SolidForeground);
@@ -81,16 +81,30 @@ namespace KnToolsJp1Ajs
             // (e)スタイルエイリアス[leftBox]ディクショナリに追加
             font = CreateFont(wb);
             font.FontName = "Meiryo UI";
-            font.FontHeightInPoints = ((short)9);
+            font.FontHeightInPoints = (short)9;
             font.IsBold = false;
-            font.Color = (IndexedColors.Black.Index);
+            font.Color = IndexedColors.Black.Index;
             style = CreateBorderedStyle(wb);
             style.SetFont(font);
-            style.Alignment = (HorizontalAlignment.Left);
+            style.Alignment = HorizontalAlignment.Left;
             style.VerticalAlignment = VerticalAlignment.Center;
             //style.FillForegroundColor = (IndexedColors.DarkBlue.Index);
             //style.FillPattern = (FillPattern.SolidForeground);
             styles.Add("leftBox", style);
+
+            // (f)スタイルエイリアス[Box]ディクショナリに追加
+            font = CreateFont(wb);
+            font.FontName = "Meiryo UI";
+            font.FontHeightInPoints = (short)9;
+            font.IsBold = false;
+            font.Color = IndexedColors.Black.Index;
+            style = CreateBorderedStyle(wb);
+            style.SetFont(font);
+            //style.Alignment = HorizontalAlignment.Left;
+            style.VerticalAlignment = VerticalAlignment.Center;
+            //style.FillForegroundColor = (IndexedColors.DarkBlue.Index);
+            //style.FillPattern = (FillPattern.SolidForeground);
+            styles.Add("Box", style);
 
             return styles;
         }

@@ -15,6 +15,13 @@ namespace KnToolsJp1Ajs
     public class UpdateBook
     {
         //public static bool UpdateExcelBook(string templateFile, List<Unit> lists, List<string> lines, string outputFile)
+
+        /// <summary>
+        /// Bookの中身をデータ更新
+        /// </summary>
+        /// <param name="outputFile"></param>
+        /// <param name="ajsDef"></param>
+        /// <returns></returns>
         public static bool UpdateExcelBook(string outputFile, Jp1AjsDef.AjsDef ajsDef)
         {
             List<Unit> lists = ajsDef.Units;
@@ -25,7 +32,7 @@ namespace KnToolsJp1Ajs
                 var book = WorkbookFactory.Create(outputFile);
 
                 //Bookのスタイル作成
-                Dictionary<String, ICellStyle> styles = BookStyles.CreateBookStyles(book);
+                Dictionary<string, ICellStyle> styles = BookStyles.CreateBookStyles(book);
 
                 UpdateSheetUnit(book, lists, styles);
                 UpdateSheetFile(book, lists, styles);
@@ -54,7 +61,7 @@ namespace KnToolsJp1Ajs
         /// <param name="lists">ユニット</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        public static bool UpdateSheetUnit(IWorkbook book, List<Unit> lists, Dictionary<String, ICellStyle> styles)
+        public static bool UpdateSheetUnit(IWorkbook book, List<Unit> lists, Dictionary<string, ICellStyle> styles)
         {
             var sheet = book.GetSheet(ConstJP1AJS.SHEETNAME_UNIT);
 
@@ -69,7 +76,7 @@ namespace KnToolsJp1Ajs
                 list.Insert(0, (z + 1).ToString());
                 for (int u = 0; u < list.Count; u++)
                 {
-                    WriteCell(sheet, styles["leftBox"], (y + z, x + u), list[u]);
+                    WriteCell(sheet, styles["Box"], (y + z, x + u), list[u]);
                 }
             }
 
@@ -89,7 +96,7 @@ namespace KnToolsJp1Ajs
         /// <param name="lists">ユニット</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        public static bool UpdateSheetFile(IWorkbook book, List<Unit> lists, Dictionary<String, ICellStyle> styles)
+        public static bool UpdateSheetFile(IWorkbook book, List<Unit> lists, Dictionary<string, ICellStyle> styles)
         {
             var sheet = book.GetSheet(ConstJP1AJS.SHEETNAME_FILE);
 
@@ -101,7 +108,7 @@ namespace KnToolsJp1Ajs
 
             for (int z = 0; z < flwjs.Count; z++)
             {
-                WriteCell(sheet, styles["leftBox"], (y + z, x), (z + 1).ToString());
+                WriteCell(sheet, styles["Box"], (y + z, x), (z + 1).ToString());
                 WriteCell(sheet, styles["leftBox"], (y + z, x + 1), flwjs[z].UnitName);
                 WriteCell(sheet, styles["leftBox"], (y + z, x + 2), flwjs[z].Flwf);
                 WriteCell(sheet, styles["leftBox"], (y + z, x + 3), flwjs[z].SuperUnitName);
@@ -123,7 +130,7 @@ namespace KnToolsJp1Ajs
         /// <param name="lists">ユニット</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        public static bool UpdateSheetNext(IWorkbook book, List<Unit> lists, Dictionary<String, ICellStyle> styles)
+        public static bool UpdateSheetNext(IWorkbook book, List<Unit> lists, Dictionary<string, ICellStyle> styles)
         {
             var sheet = book.GetSheet(ConstJP1AJS.SHEETNAME_NEXT);
 
@@ -139,7 +146,7 @@ namespace KnToolsJp1Ajs
             {
                 for (int i = 0; i < arlist.ArList.Count; i++, z++)
                 {
-                    WriteCell(sheet, styles["leftBox"], (y + z, x), (z + 1).ToString());
+                    WriteCell(sheet, styles["Box"], (y + z, x), (z + 1).ToString());
                     WriteCell(sheet, styles["leftBox"], (y + z, x + 1), arlist.ArList[i].Item1);
                     WriteCell(sheet, styles["leftBox"], (y + z, x + 2), arlist.ArList[i].Item2);
                     WriteCell(sheet, styles["leftBox"], (y + z, x + 3), "/" + arlist.UnitName);
@@ -162,7 +169,7 @@ namespace KnToolsJp1Ajs
         /// <param name="lines">ユニット定義</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        public static bool UpdateSheetAjsprint(IWorkbook book, List<string> lines, Dictionary<String, ICellStyle> styles)
+        public static bool UpdateSheetAjsprint(IWorkbook book, List<string> lines, Dictionary<string, ICellStyle> styles)
         {
             var sheet = book.GetSheet(ConstJP1AJS.SHEETNAME_AJSPRINT);
 
@@ -172,7 +179,7 @@ namespace KnToolsJp1Ajs
             //List<string> list;
             for (int z = 0; z < lines.Count; z++)
             {
-                WriteCell(sheet, styles["leftBox"], (y + z, x), (z + 1).ToString());
+                WriteCell(sheet, styles["Box"], (y + z, x), (z + 1).ToString());
                 WriteCell(sheet, styles["leftBox"], (y + z, x + 1), lines[z]);
             }
 
@@ -183,16 +190,44 @@ namespace KnToolsJp1Ajs
             return true;
         }
 
-        //
+        /// <summary>
+        /// セルにデータをセット
+        /// </summary>
+        /// <param name="sheet">シート</param>
+        /// <param name="style">セルスタイル</param>
+        /// <param name="s">セル位置</param>
+        /// <param name="value">セットするデータ値</param>
         public static void WriteCell(ISheet sheet, ICellStyle style, (int y, int x) s, string value)
         {
             var row = sheet.GetRow(s.y) ?? sheet.CreateRow(s.y);
             var cell = row.GetCell(s.x) ?? row.CreateCell(s.x);
-            cell.SetCellValue(value);
+            
             cell.CellStyle = style;
+
+            //セルが数値の場合の対応
+            bool result;
+            result = int.TryParse(value, out int intvalue);
+            if (result)
+            {
+                cell.SetCellType(CellType.Numeric);
+                cell.SetCellValue(intvalue);
+            }
+            else
+            {
+                cell.SetCellType(CellType.String);
+                cell.SetCellValue(value);
+            }
+
         }
 
-        //
+        /// <summary>
+        /// セルにデータをセット リンク付き
+        /// </summary>
+        /// <param name="sheet">シート</param>
+        /// <param name="style">セルスタイル</param>
+        /// <param name="s">セル位置</param>
+        /// <param name="value">セットする値</param>
+        /// <param name="link">シートのリンク</param>
         public static void WriteCell(ISheet sheet, ICellStyle style, (int y, int x) s, string value, IHyperlink link)
         {
             var row = sheet.GetRow(s.y) ?? sheet.CreateRow(s.y);

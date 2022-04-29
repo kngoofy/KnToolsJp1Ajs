@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:KnToolsJp1AjsUI"
         mc:Ignorable="d"
         Icon="images\application_msn_windows_2431.ico"
-        Title="Jp1AjsBook" Height="560" Width="800">
+        Title="Jp1AjsBook" Height="560" Width="760">
 
     <Grid>
         <Grid.RowDefinitions>

@@ -66,7 +66,7 @@ namespace KnToolsJp1Ajs
         /// <param name="sheet">Indexシート</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        private static bool MakeSheetIndex(ISheet sheet, Dictionary<String, ICellStyle> styles)
+        private static bool MakeSheetIndex(ISheet sheet, Dictionary<string, ICellStyle> styles)
         {
             //メモリ線(枠線)を非表示
             sheet.DisplayGridlines = false;
@@ -111,7 +111,7 @@ namespace KnToolsJp1Ajs
         /// <param name="sheet">Unitシート</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        private static bool MakeSheetUnit(ISheet sheet, Dictionary<String, ICellStyle> styles)
+        private static bool MakeSheetUnit(ISheet sheet, Dictionary<string, ICellStyle> styles)
         {
             //メモリ線(枠線)を非表示
             sheet.DisplayGridlines = false;
@@ -149,7 +149,7 @@ namespace KnToolsJp1Ajs
         /// <param name="sheet">Fileシート</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        private static bool MakeSheetFile(ISheet sheet, Dictionary<String, ICellStyle> styles)
+        private static bool MakeSheetFile(ISheet sheet, Dictionary<string, ICellStyle> styles)
         {
             //メモリ線(枠線)を非表示
             sheet.DisplayGridlines = false;
@@ -185,7 +185,7 @@ namespace KnToolsJp1Ajs
         /// <param name="sheet">Nextシート</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        private static bool MakeSheetNext(ISheet sheet, Dictionary<String, ICellStyle> styles)
+        private static bool MakeSheetNext(ISheet sheet, Dictionary<string, ICellStyle> styles)
         {
             //メモリ線(枠線)を非表示
             sheet.DisplayGridlines = false;
@@ -221,7 +221,7 @@ namespace KnToolsJp1Ajs
         /// <param name="sheet">Ajsprintシート</param>
         /// <param name="styles">Cellスタイル定義</param>
         /// <returns></returns>
-        private static bool MakeSheetAjsprint(ISheet sheet, Dictionary<String, ICellStyle> styles)
+        private static bool MakeSheetAjsprint(ISheet sheet, Dictionary<string, ICellStyle> styles)
         {
             //メモリ線(枠線)を非表示
             sheet.DisplayGridlines = false;

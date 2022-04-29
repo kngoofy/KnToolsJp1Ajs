@@ -1,0 +1,128 @@
+﻿unit=testAJS2,,jpluser,;
+{
+    ty=n;
+    cm="testAJS";
+    sz=10x8; 
+    el=TESTUNITYY05,n,+240+144;
+    el=TESTUNITAD09,n,+400+528;
+    el=TESTUNITAD20,n,+560+336;
+    ar=(f=TESTUNITYY05,t=TESTUNITAD09,sea);
+    ar=(f=TESTUNITYY05,t=TESTUNITAD20,sea);
+    ar=(f=FLCK_DDDD,t=TESTUNITAD20,sea);
+    sd=1,en;
+    st=1,+00:00;
+    sh=1,ca;
+    shd=1,2;
+    unit=TESTUNITADO5,,jpluser,;
+    {
+        ty=n;
+        cm="TESTUNITYY05ネットコメント";
+        sz=10x8;
+        el=TESTUNITADO501,j,+240+144;
+        el=TESTUNITYY0502,j,+560+144;
+        el=FLCK_DDDD,j,+560+144;      
+        ar=(f=TESTUNITYY0501,t=TESTUNITYY0502, seq);
+        sd=1,2018/11/01;
+        st=1,+00:00;
+        cy=1,(1.d);
+        sh=1,ca;
+        shd=1,2;
+        de=n;
+        ha=y;
+        unit=TESTUNITYY0501,,jpluser,;
+        {
+            ty=j;
+            cm="test501";
+            te="/usr/bin/test501.sh";
+            un="unusr";
+            tho=0;
+            eu=def;
+        }
+        unit=TESTUNITYY0502,,jpluser,;
+        {
+            ty=j;
+            cm="G監視起動";
+            te="/usr/bin/test502.sh";
+            un="appadam";
+            tho=0;
+            eu=def;
+            ha=y;
+        }
+        unit=FLCK_DDDD,,jpluser,;
+        {
+            ty=flwj;
+            cm="FLCKジョブ";
+            flwf="test.data";
+            flwc=c:m;
+            flco=y;
+            flwi=30;
+            eu=def;
+        }
+    }
+    unit=TESTUNITADO9,,jpluser,;
+    {
+        ty=n;
+        cm="Strategyebl21(+)(17:00)";
+        sz=10x8;
+        el=TESTUNITAD0901,j,+240+144;
+        el=SO_YKH-DR012,j,+560+144;
+        ar=(f=TESTUNITAD0901,t=SO_YKH-DR012, seq);
+        sd=1,2018/11/01;
+        st=1,17:00;
+        cy=1,(1,d);
+        sh=1,ca;
+        shd=1,2;
+        de=n; 
+        unit TESTUNITAD0901,,jpluser,;
+        {
+            ty=j;
+            cm="コメントジョブ";
+            te="/usr/bin/test502.sh";
+            un="unusr";
+            tho=0;
+            eu=def;
+        }
+        unit=SO_YKH-DR012,,jp1user,;
+        {
+            ty=j;
+            cm="ID=HULFTID csvfile";
+            te="/HULFT/hulsnd.sh -f IDhogeHULFT";
+            un="hulft";
+            tho=0; 
+            eu=def;
+        }    
+    }
+    unit=TESTUNITAD20,,jpluser,;
+    {
+        ty=n;
+        cm="f-Basel21(B) (15:00)";
+        sz=10x8;
+        el=TESTUNITAD2001,j.+240+144;
+        el=SD_FBSDR014,j,+560+144;
+        ar=(TESTUNITAD2001,t=SD_FBSDR014.sea);
+        sd=1,2020/03/01;
+        st=1,15:00;
+        cy=1,(1,d);
+        sh=1,ca;
+        shd=1,2;
+        de=n;
+        unit=TESTUNITAD2001,,jpluser,;
+        {
+            ty=j;
+            cm="連携ファイル (休日マスタ情報) 作成処理";
+            te="/test/batch/scripts/b_aaa.sh holiday";
+            un="unusr";
+            tho=0;
+            eu=def;
+        }
+        unit=SD_FBSDR014,,jpluser,;     
+        {
+            ty=j;
+            cm="ID=FBSDR014/holiday_to_fbase.csv";
+            te="/HLFT/hulsnd.sh -f IDTESThulftxx";
+            un="hulft";
+            tho=0;
+            eu=def;
+        }
+    }
+}
