@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>g12-office-excel2_97398.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -93,6 +96,12 @@
     <Content Include="Data\jp1def-test03.def" />
     <Content Include="Data\jp1def-test02.def" />
     <Content Include="Data\jp1def-test01.def" />
+    <Content Include="g12-office-excel2_97398.ico" />
+    <Content Include="images\g12-office-excel2_97398.ico" />
+    <Content Include="images\msexcel_93695.ico" />
+    <Content Include="images\office_excel_xlsx_15863.ico" />
+    <Content Include="msexcel_93695.ico" />
+    <Content Include="office_excel_xlsx_15863.ico" />
     <Content Include="TestData\Ajs.def" />
     <Content Include="TestData\jp1def-test01.def" />
     <Content Include="TestData\jp1def-test02.def" />
