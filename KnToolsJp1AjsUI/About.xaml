@@ -60,8 +60,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Category:"/>
-                <materialDesign:Chip 
-                    Grid.Row="1" Grid.Column="1"
+                <materialDesign:Chip Grid.Row="1" Grid.Column="1"
                     Content="Jp1AjsBook 作成"
                     Style="{StaticResource MyChip}">
                     <materialDesign:Chip.Icon>
@@ -70,8 +69,7 @@
                 </materialDesign:Chip>
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Author:" />
-                <materialDesign:Chip 
-                    Grid.Row="2" Grid.Column="1"
+                <materialDesign:Chip Grid.Row="2" Grid.Column="1"
                     Content="kngoofy@gmail.com"
                     Style="{StaticResource MyChip}" >
                     <materialDesign:Chip.Icon>

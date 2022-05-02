@@ -6,9 +6,10 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"              
         xmlns:local="clr-namespace:KnToolsJp1AjsUI"
+        FocusManager.FocusedElement="{Binding ElementName=tbJp1AjsBookName}"
         mc:Ignorable="d"
         Icon="images\application_msn_windows_2431.ico"
-        Title="Jp1AjsBook" Height="560" Width="760">
+        Title="Jp1AjsBook" Height="570" Width="760" MinWidth="740" MinHeight="550">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
             <RowDefinition Height="6"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="63.333"/>
+            <RowDefinition Height="73.333"/>
             <RowDefinition Height="103"/>
             <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
@@ -93,7 +94,7 @@
 
         <GroupBox Grid.Row="3" Margin="8"
                 Header="元となるJP1定義ファイルの指定"
-                Style="{StaticResource MaterialDesignCardGroupBox}"                >
+                Style="{StaticResource MaterialDesignCardGroupBox}">
 
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
@@ -141,7 +142,7 @@
             </Grid>
         </GroupBox>
 
-        <materialDesign:DialogHost Grid.Row="4">
+        <materialDesign:DialogHost Grid.Row="4" VerticalAlignment="Center">
             <Button 
             Click="Button_Click_CreateJp1AjsBook"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -149,9 +150,8 @@
             Content="Jp1AjsBookを作成する"
             FontSize="20"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
-            Margin="30,10,30,10" Height="44" Width="Auto" VerticalAlignment="Center"  />
+            Margin="30,1,30,1" Height="58" Width="Auto"  />
         </materialDesign:DialogHost>
-
 
         <Image Grid.Row="5" Grid.Column="0"
             Margin="0"

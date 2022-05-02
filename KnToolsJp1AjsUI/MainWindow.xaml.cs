@@ -20,6 +20,7 @@ using Path = System.IO.Path;
 
 using MahApps.Metro.Controls;
 using MaterialDesignThemes.Wpf;
+using System.Diagnostics;
 
 namespace KnToolsJp1AjsUI
 {
@@ -37,6 +38,7 @@ namespace KnToolsJp1AjsUI
 
             var holderName = Directory.GetCurrentDirectory();
             tbJp1AjsBookName.Text = holderName + "\\" + "Jp1AjsBook.xlsx";
+
         }
 
         /// <summary>
@@ -53,6 +55,9 @@ namespace KnToolsJp1AjsUI
         private void OnMenuAbout(object sender, RoutedEventArgs e)
         {
             var _childWindow = new About();
+
+            _childWindow.Top = this.Top + 120;
+            _childWindow.Left = this.Left + 120;
             _childWindow.ShowDialog();
         }
 
